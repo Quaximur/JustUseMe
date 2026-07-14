@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 using UnityEditor.Toolbars;
 using UnityEngine;
 
-namespace SlopSquad.Editor
+namespace SparksOfTheAbyss.Editor
 {
     internal static class ScenesMenu
     {

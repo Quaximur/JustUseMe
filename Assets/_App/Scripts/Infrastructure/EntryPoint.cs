@@ -3,7 +3,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace SlopSquad.Infrastructure
+namespace SparksOfTheAbyss.Infrastructure
 {
     public class EntryPoint
     {

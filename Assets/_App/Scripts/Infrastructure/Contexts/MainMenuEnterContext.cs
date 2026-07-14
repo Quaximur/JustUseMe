@@ -1,6 +1,6 @@
-using SlopSquad.Shared;
+using SparksOfTheAbyss.Shared;
 
-namespace SlopSquad.Infrastructure.Contexts
+namespace SparksOfTheAbyss.Infrastructure.Contexts
 {
     public class MainMenuEnterContext : SceneContext
     {

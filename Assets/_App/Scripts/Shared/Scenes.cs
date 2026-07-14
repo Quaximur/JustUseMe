@@ -1,4 +1,4 @@
-namespace SlopSquad.Shared
+namespace SparksOfTheAbyss.Shared
 {
     public static class Scenes
     {

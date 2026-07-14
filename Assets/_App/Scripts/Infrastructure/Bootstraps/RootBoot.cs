@@ -1,6 +1,6 @@
 using VContainer;
 
-namespace SlopSquad.Infrastructure.Bootstraps
+namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
     public class RootBoot : Bootstrap
     {

@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using R3;
 using Cysharp.Threading.Tasks;
-using SlopSquad.Infrastructure.Contexts;
-using SlopSquad.Infrastructure.Bootstraps;
-using SlopSquad.Shared;
+using SparksOfTheAbyss.Infrastructure.Contexts;
+using SparksOfTheAbyss.Infrastructure.Bootstraps;
+using SparksOfTheAbyss.Shared;
 
-namespace SlopSquad.Infrastructure
+namespace SparksOfTheAbyss.Infrastructure
 {
     public class SceneLoader
     {

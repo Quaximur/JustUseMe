@@ -1,5 +1,5 @@
-using SlopSquad.Shared;
-namespace SlopSquad.Infrastructure.Contexts
+using SparksOfTheAbyss.Shared;
+namespace SparksOfTheAbyss.Infrastructure.Contexts
 {
     public class GameplayEnterContext : SceneContext
     {

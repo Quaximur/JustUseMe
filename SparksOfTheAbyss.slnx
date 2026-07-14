@@ -1,7 +1,7 @@
 ﻿<Solution>
-  <Project Path="SlopSquad.Infrastructure.csproj" />
+  <Project Path="SparksOfTheAbyss.Infrastructure.csproj" />
   <Project Path="UnityEngine.UI.csproj" />
-  <Project Path="SlopSquad.Editor.csproj" />
-  <Project Path="SlopSquad.Shared.csproj" />
-  <Project Path="SlopSquad.Editor.Internals.csproj" />
+  <Project Path="SparksOfTheAbyss.Editor.csproj" />
+  <Project Path="SparksOfTheAbyss.Shared.csproj" />
+  <Project Path="SparksOfTheAbyss.Editor.Internals.csproj" />
 </Solution>

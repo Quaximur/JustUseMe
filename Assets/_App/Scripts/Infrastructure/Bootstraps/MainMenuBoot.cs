@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
 using R3;
-using SlopSquad.Infrastructure.Contexts;
-using SlopSquad.Shared;
+using SparksOfTheAbyss.Infrastructure.Contexts;
+using SparksOfTheAbyss.Shared;
 using VContainer;
 
-namespace SlopSquad.Infrastructure.Bootstraps
+namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
     public class MainMenuBoot : Bootstrap
     {
@@ -12,11 +12,12 @@ namespace SlopSquad.Infrastructure.Bootstraps
 
         protected override void Configure(IContainerBuilder builder)
         {
-            //// REGISTRATIONS
+            // REGISTRATIONS
+
             builder.Register<Subject<Unit>>(Lifetime.Scoped)
                 .Keyed(Constants.GAMEPLAY_START_SIGNAL);
  
-            ////
+            //
         }
 
 
@@ -26,9 +27,9 @@ namespace SlopSquad.Infrastructure.Bootstraps
             
             Build();
 
-            //// INITIALIZATION
+            // INITIALIZATION
 
-            ////
+            //
 
             var startSessionSignal = Container.Resolve<Subject<Unit>>(Constants.GAMEPLAY_START_SIGNAL);
             var mainMenuExitSignal = new Subject<MainMenuExitContext>();

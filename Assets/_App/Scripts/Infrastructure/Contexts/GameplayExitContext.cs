@@ -1,4 +1,4 @@
-namespace SlopSquad.Infrastructure.Contexts
+namespace SparksOfTheAbyss.Infrastructure.Contexts
 {
     public class GameplayExitContext
     {

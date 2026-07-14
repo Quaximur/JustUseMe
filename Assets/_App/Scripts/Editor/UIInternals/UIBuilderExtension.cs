@@ -2,7 +2,7 @@
 using Unity.UI.Builder;
 using UnityEditor;
 
-namespace SlopSquad.Editor.UIInternals
+namespace SparksOfTheAbyss.Editor.UIInternals
 {
     internal class UIBuilderExtension
     {

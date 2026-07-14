@@ -3,7 +3,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SlopSquad.Infrastructure
+namespace SparksOfTheAbyss.Infrastructure
 {
     public enum LoadingLogo
     {
