@@ -5,18 +5,14 @@ using UnityEngine;
 
 namespace SparksOfTheAbyss.Infrastructure.Installers
 {
-    public abstract class ModuleInstaller : MonoBehaviour, IInstaller, IModuleRegistrator
+    public abstract class ModuleInstaller : MonoBehaviour, IInstaller
     {
-        public abstract void Install(ContainerBuilder containerBuilder);
+        public abstract void Install(ContainerBuilder builder);
         public abstract UniTask OnInitialize();
 
-        void IInstaller.InstallBindings(ContainerBuilder containerBuilder)
+        void IInstaller.InstallBindings(ContainerBuilder builder)
         {
-            Install(containerBuilder);
-        }
-
-        void IModuleRegistrator.Register(ContainerBuilder builder)
-        {
+            Install(builder);
             builder.OnContainerBuilt += OnBuilt;
         }
 

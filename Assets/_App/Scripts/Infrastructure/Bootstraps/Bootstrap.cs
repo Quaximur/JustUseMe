@@ -7,7 +7,6 @@ using R3;
 using DevKit.Utils;
 using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.Shared.Utils;
-using SparksOfTheAbyss.Infrastructure.Installers;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
@@ -21,6 +20,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
         protected void Build()
         {
             ContainerScope.OnSceneContainerBuilding += AdditionalRegistrations;
+
             _containerScope.Run();
             _container = gameObject.scene.GetSceneContainer();
         }
@@ -34,11 +34,6 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
             builder.RegisterValue(new BootstrapWaitQueueKey(new WaitQueue()));
 
             OnConfigure(builder);
-
-            var modules = GetComponentsInChildren<IModuleRegistrator>(); // TODO: cache found IInstallers from Reflex
-
-            foreach (var module in modules)
-                module.Register(builder);
 
             ContainerScope.OnSceneContainerBuilding -= AdditionalRegistrations;
         }
