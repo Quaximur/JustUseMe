@@ -1,8 +1,9 @@
 using Cysharp.Threading.Tasks;
 using R3;
+using Reflex.Core;
 using SparksOfTheAbyss.Infrastructure.Contexts;
 using SparksOfTheAbyss.Shared;
-using VContainer;
+using SparksOfTheAbyss.TypedKeys;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
@@ -10,12 +11,11 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
     {
         private MainMenuEnterContext _mainMenuEnterContext;
 
-        protected override void Configure(IContainerBuilder builder)
+       protected override void OnContainerPreBuilt(ContainerBuilder builder)
         {
             // REGISTRATIONS
 
-            builder.Register<Subject<Unit>>(Lifetime.Scoped)
-                .Keyed(Constants.GAMEPLAY_START_SIGNAL);
+            builder.RegisterValue(new StartSessionSubjectKey(new Subject<Unit>()));
  
             //
         }
@@ -31,7 +31,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 
             //
 
-            var startSessionSignal = Container.Resolve<Subject<Unit>>(Constants.GAMEPLAY_START_SIGNAL);
+            var startSessionSignal = _container.Resolve<StartSessionSubjectKey>().Value;
             var mainMenuExitSignal = new Subject<MainMenuExitContext>();
             var gameplayEnterContext = new GameplayEnterContext(); // TODO: take context from state
             var mainMenuExitContext = new MainMenuExitContext(gameplayEnterContext);
@@ -39,20 +39,9 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
             startSessionSignal.Take(1).Subscribe(_ =>
             {
                 mainMenuExitSignal.OnNext(mainMenuExitContext);
-            }).AddTo(_disposables);
+            }).AddTo(ref _disposables);
 
             return UniTask.FromResult<Observable<MainMenuExitContext>>(mainMenuExitSignal);
-        }
-
-        protected override void OnDestroy()
-        {
-            if (_disposables != null)
-            {
-                _disposables.Dispose();
-                _disposables = null;
-            }
-
-            base.OnDestroy();
         }
     }
 }

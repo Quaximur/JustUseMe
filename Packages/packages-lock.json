@@ -23,6 +23,27 @@
       "dependencies": {},
       "hash": "a7c6b49a0141a5bff9b1983e38137522ef61977d"
     },
+    "com.gustavopsantos.reflex": {
+      "version": "https://github.com/Quaximur/reflex.git?path=/Assets/Reflex/#14.3.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d27361f6215cf01998e4ab4bd7588974dbd9f7f4"
+    },
+    "com.quaximur.devkit": {
+      "version": "https://github.com/Quaximur/DevKit.git#0.2.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b5688f9f664a67cc19041327c34d05123a46a0a9"
+    },
+    "com.quaximur.devkit.ui": {
+      "version": "https://github.com/Quaximur/DevKit.UI.git#0.1.3",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "599e777dd9dd99ba9a6ab9ec3f5b423ed771116c"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.12",
       "depth": 0,
@@ -198,13 +219,6 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
-    },
-    "jp.hadashikick.vcontainer": {
-      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.18.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "6e6972730ce316fab2408f20e7a160aec070e48b"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

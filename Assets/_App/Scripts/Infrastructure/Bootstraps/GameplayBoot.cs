@@ -1,8 +1,8 @@
 using Cysharp.Threading.Tasks;
 using R3;
+using Reflex.Core;
 using SparksOfTheAbyss.Infrastructure.Contexts;
-using SparksOfTheAbyss.Shared;
-using VContainer;
+using SparksOfTheAbyss.TypedKeys;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
@@ -10,15 +10,11 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
     {
         private GameplayEnterContext _gameplayEnterContext;
 
-        protected override void Configure(IContainerBuilder builder)
+        protected override void OnContainerPreBuilt(ContainerBuilder builder)
         {
             // REGISTRATIONS
-            
-            builder.Register<Subject<Unit>>(Lifetime.Singleton)
-                .Keyed(Constants.GAMEPLAY_EXIT_SIGNAL);
 
-            builder.Register<Subject<Unit>>(Lifetime.Singleton)
-                .Keyed(Constants.GAMEPLAY_RESTART_SIGNAL);
+            builder.RegisterValue(new ExitGameplaySubjectKey(new Subject<Unit>()));
 
             //
         }
@@ -33,7 +29,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 
             //
 
-            var exitSignal = Container.Resolve<Subject<Unit>>(Constants.GAMEPLAY_EXIT_SIGNAL);
+            var exitSignal = _container.Resolve<ExitGameplaySubjectKey>().Value;
             var gameplayExitSignal = new Subject<GameplayExitContext>();
             var mainMenuEnterContext = new MainMenuEnterContext();
 
@@ -44,7 +40,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
                 {
                     gameplayExitSignal.OnNext(gameplayExitContext);
                 })
-                .AddTo(_disposables);
+                .AddTo(ref _disposables);
 
             return await UniTask.FromResult<Observable<GameplayExitContext>>(gameplayExitSignal);
         }

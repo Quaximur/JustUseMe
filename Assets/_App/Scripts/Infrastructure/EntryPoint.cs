@@ -1,7 +1,8 @@
 using Cysharp.Threading.Tasks;
+using DevKit.Utils;
+using Reflex.Core;
+using Reflex.Injectors;
 using UnityEngine;
-using VContainer;
-using VContainer.Unity;
 
 namespace SparksOfTheAbyss.Infrastructure
 {
@@ -24,28 +25,28 @@ namespace SparksOfTheAbyss.Infrastructure
 
             loadingScreen.Show();
 
+            ContainerScope.OnRootContainerBuilding += builder =>
+            {
+                builder.RegisterValue(loadingScreen);
+                FLogger.Log<EntryPoint>("Additional Root registrations");
+            };
+
+            UnityInjector.InitRootContainer();
+
             RunAsync().Forget();
 
             return;
 
             async UniTaskVoid RunAsync()
             {
-                var vContainerSettings = Resources.Load<VContainerSettings>("vcontainer_settings");
-                var instanceProperty = typeof(VContainerSettings).GetProperty("Instance");
-                instanceProperty.SetValue(null, vContainerSettings);
+                // await LocalizationSettings.InitializationOperation;
 
-                var rootScope = vContainerSettings.GetOrCreateRootLifetimeScopeInstance();
-                using (LifetimeScope.Enqueue(builder =>
-                   {
-                       builder.RegisterInstance(loadingScreen);
-                   }))
-                {
-                    rootScope.Build();
-                }
+                // var localizationLoader = Container.RootContainer.Resolve<RootLocalizationLoaderRef>().Value;
+                // localizationLoader.Init();
 
-                var rootContainer = rootScope.Container;
+                // await localizationLoader.LoadTablesAsync();
 
-                var sceneLoader = rootContainer.Resolve<SceneLoader>();
+                var sceneLoader = new SceneLoader(loadingScreen);
 
                 await sceneLoader.LoadStartScene();
             }

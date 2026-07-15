@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Shared
+namespace SparksOfTheAbyss.Infrastructure
 {
     public static class Scenes
     {
