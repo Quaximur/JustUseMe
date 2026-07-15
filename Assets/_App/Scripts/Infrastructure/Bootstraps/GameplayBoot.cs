@@ -31,7 +31,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
             //
 
             var waitQueue = _container.Resolve<BootstrapWaitQueueKey>().Value;
-            await waitQueue.WaitForCompletion(); // CRUTIAL: resolve and await modules init
+            await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
 
             var exitSignal = _container.Resolve<ExitGameplaySubjectKey>().Value;
             var gameplayExitSignal = new Subject<GameplayExitContext>();

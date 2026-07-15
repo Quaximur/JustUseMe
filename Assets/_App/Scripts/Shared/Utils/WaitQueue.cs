@@ -1,21 +1,25 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
 namespace SparksOfTheAbyss.Shared.Utils
 {
     public class WaitQueue
     {
-        public UniTask WaitForCompletion()
+        private readonly List<Func<UniTask>> _awaitableFuncs = new();
+
+        public async UniTask ExecuteAsync()
         {
-            return UniTask.CompletedTask;
+            foreach (var awaitableFunc in _awaitableFuncs)
+                await awaitableFunc();
         }
 
-        // Add to wait group. Func will start executing in queue after WaitForCompletion call
-        public void Add(Func<UniTask> initFunc)
+        /// <summary> 
+        /// Add to wait group. Func will start executing in queue after <see cref="ExecuteAsync"/> call
+        /// </summary>
+        public void Add(Func<UniTask> awaitableFunc)
         {
-            
+            _awaitableFuncs.Add(awaitableFunc);
         }
-
-        // TODO: Add and Execute immediately
     }
 }

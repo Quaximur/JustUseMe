@@ -1,16 +1,27 @@
-using System;
 using DevKit.UI.MVVM;
-using SparksOfTheAbyss.Shared;
 using Reflex.Core;
-using UnityEngine;
+using Cysharp.Threading.Tasks;
+using DevKit.Utils;
 
 using Lifetime = Reflex.Enums.Lifetime;
 using Resolution = Reflex.Enums.Resolution;
 
 namespace SparksOfTheAbyss.Infrastructure.Installers
 {
-    public class RootUICleanupInstaller
+    public class RootUICleanupInstaller : ModuleInstaller
     {
+        public override void Install(ContainerBuilder builder)
+        {
+        }
 
+        public override UniTask OnInitialize()
+        {
+            var rootUIBinder = _container.Resolve<IRootUIBinder>();
+            rootUIBinder.ClearViews();
+
+            FLogger.Log<RootUICleanupInstaller>("Root UI cleaned");
+
+            return UniTask.CompletedTask;
+        }
     }
 }

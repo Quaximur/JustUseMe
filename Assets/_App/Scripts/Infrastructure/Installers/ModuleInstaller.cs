@@ -5,10 +5,12 @@ using UnityEngine;
 
 namespace SparksOfTheAbyss.Infrastructure.Installers
 {
-    public abstract class ModuleInstaller : MonoBehaviour, IInstaller
+    public abstract class ModuleInstaller : MonoBehaviour, IInstaller, IModuleInstaller
     {
         public abstract void Install(ContainerBuilder builder);
         public abstract UniTask OnInitialize();
+
+        protected Container _container;
 
         void IInstaller.InstallBindings(ContainerBuilder builder)
         {
@@ -18,6 +20,8 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
 
         private void OnBuilt(Container container)
         {
+            _container = container;
+            
             var waitQueue = container.Resolve<BootstrapWaitQueueKey>().Value;
             waitQueue.Add(OnInitialize);
         }
