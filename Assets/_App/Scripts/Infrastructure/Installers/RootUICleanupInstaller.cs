@@ -16,7 +16,7 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
 
         public override UniTask OnInitialize()
         {
-            var rootUIBinder = _container.Resolve<IRootUIBinder>();
+            var rootUIBinder = Container.Resolve<IRootUIBinder>();
             rootUIBinder.ClearViews();
 
             FLogger.Log<RootUICleanupInstaller>("Root UI cleaned");

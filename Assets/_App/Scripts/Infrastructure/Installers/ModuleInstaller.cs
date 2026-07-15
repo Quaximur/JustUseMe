@@ -10,7 +10,7 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
         public abstract void Install(ContainerBuilder builder);
         public abstract UniTask OnInitialize();
 
-        protected Container _container;
+        protected Container Container { get; private set; }
 
         void IInstaller.InstallBindings(ContainerBuilder builder)
         {
@@ -20,8 +20,8 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
 
         private void OnBuilt(Container container)
         {
-            _container = container;
-            
+            Container = container;
+
             var waitQueue = container.Resolve<BootstrapWaitQueueKey>().Value;
             waitQueue.Add(OnInitialize);
         }
