@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using R3;
 using Reflex.Core;
 using SparksOfTheAbyss.Infrastructure.Contexts;
+using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.TypedKeys;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
@@ -10,7 +11,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
     {
         private GameplayEnterContext _gameplayEnterContext;
 
-        protected override void OnContainerPreBuilt(ContainerBuilder builder)
+        protected override void OnConfigure(ContainerBuilder builder)
         {
             // REGISTRATIONS
 
@@ -23,11 +24,14 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
         {
             _gameplayEnterContext = gameplayEnterContext;
 
-            Build();
+            Build(); // CRUTIAL: build the Container with dependencies
 
             // INITIALIZATION
 
             //
+
+            var waitQueue = _container.Resolve<BootstrapWaitQueueKey>().Value;
+            await waitQueue.WaitForCompletion(); // CRUTIAL: resolve and await modules init
 
             var exitSignal = _container.Resolve<ExitGameplaySubjectKey>().Value;
             var gameplayExitSignal = new Subject<GameplayExitContext>();

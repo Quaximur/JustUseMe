@@ -11,7 +11,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
     {
         private MainMenuEnterContext _mainMenuEnterContext;
 
-       protected override void OnContainerPreBuilt(ContainerBuilder builder)
+       protected override void OnConfigure(ContainerBuilder builder)
         {
             // REGISTRATIONS
 
