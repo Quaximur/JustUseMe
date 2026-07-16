@@ -1,0 +1,24 @@
+{
+    "name": "SparksOfTheAbyss.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:77221876cc6b8244180b96e320b1bcd4",
+        "GUID:d97c239f2f13de7499d761d5802afb3c",
+        "GUID:04a88fc4b30c6444294d10e1fa853539",
+        "GUID:2773bf1843bf0fa458c3425fa0cec93a",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f",
+        "GUID:8f6f1b8ed2cd84b4d9ae385d3a7584a9",
+        "GUID:9b9bf60f86e1f8a43a68cbe20801d8e9",
+        "GUID:8df849c1535de434aac23c92e1f09319"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
