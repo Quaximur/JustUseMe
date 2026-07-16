@@ -4,7 +4,7 @@ using DevKit.Utils;
 using SparksOfTheAbyss.Shared;
 using UnityEngine;
 
-namespace ITCafe.Data
+namespace SparksOfTheAbyss.Data
 {
     [Serializable]
     public class MissionEvaluation : IMissionEvaluation

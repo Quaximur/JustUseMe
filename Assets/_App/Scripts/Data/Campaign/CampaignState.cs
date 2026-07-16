@@ -4,7 +4,7 @@ using System.Linq;
 using DevKit.Saves;
 using UnityEngine;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     [Serializable]
     public class CampaignState : IVersioned, ICopyable<CampaignState>

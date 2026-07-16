@@ -4,7 +4,7 @@ using R3;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
-namespace ITCafe
+namespace SparksOfTheAbyss.Shared.Localization
 {
     public class LocalizationLoadingService : IDisposable
     {

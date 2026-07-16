@@ -1,4 +1,4 @@
-namespace ITCafe.Infrastructure.Saves
+namespace SparksOfTheAbyss.Infrastructure.Saves
 {
     public interface ISaveStateProvider
     {

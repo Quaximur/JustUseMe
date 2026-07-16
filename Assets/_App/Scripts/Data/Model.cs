@@ -1,4 +1,4 @@
-namespace ITCafe.Data
+namespace SparksOfTheAbyss.Data
 {
     public abstract class Model<T>
     {

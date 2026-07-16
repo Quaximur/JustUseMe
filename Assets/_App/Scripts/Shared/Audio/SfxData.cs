@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ITCafe.Shared
+namespace SparksOfTheAbyss.Shared
 {
     [Serializable]
     public class SfxData

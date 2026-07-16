@@ -1,7 +1,7 @@
 using DevKit.Utils;
 using UnityEngine.Localization.Tables;
 
-namespace ITCafe
+namespace SparksOfTheAbyss.Shared.Localization
 {
     public interface ILocaleTableCollection
     {

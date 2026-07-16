@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DevKit.Utils;
-using ITCafe.Data.Campaign;
+using SparksOfTheAbyss.Data.Campaign;
 using R3;
 
-namespace ITCafe.Campaign
+namespace SparksOfTheAbyss.Campaign
 {
     /// <summary>
     /// Handles missions and locations completion logic.

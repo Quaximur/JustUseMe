@@ -3,7 +3,7 @@ using DevKit.Utils;
 using R3;
 using UnityEngine;
 
-namespace ITCafe.Shared
+namespace SparksOfTheAbyss.Shared
 {
     public struct SfxBuilder
     {

@@ -1,5 +1,5 @@
-using ITCafe;
 using SparksOfTheAbyss.Shared;
+using SparksOfTheAbyss.Shared.Localization;
 
 namespace SparksOfTheAbyss.TypedKeys
 {

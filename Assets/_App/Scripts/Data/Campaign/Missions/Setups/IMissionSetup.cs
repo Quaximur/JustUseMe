@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ITCafe.Data
+namespace SparksOfTheAbyss.Data
 {
     public interface IMissionSetup
     {

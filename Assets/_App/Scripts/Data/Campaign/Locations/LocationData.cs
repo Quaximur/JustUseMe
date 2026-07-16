@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     [Serializable]
     public class LocationData : ILocationData

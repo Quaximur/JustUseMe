@@ -2,10 +2,10 @@ using System.Collections.Generic;
 // using DevKit.Newtonsoft;
 using DevKit.Saves;
 using DevKit.Utils;
-// using ITCafe.Data.Settings;
-using ITCafe.Data.Campaign;
+// using SparksOfTheAbyss.Data.Settings;
+using SparksOfTheAbyss.Data.Campaign;
 
-namespace ITCafe.Infrastructure.Saves
+namespace SparksOfTheAbyss.Infrastructure.Saves
 {
     public class SaveStateProvider : ISaveStateProvider
     {

@@ -3,7 +3,7 @@ using DevKit.Utils;
 using R3;
 using ObservableCollections;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public class CampaignModel : Model<CampaignState>
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     [CreateAssetMenu(fileName = nameof(LocationDataCollectionSO),
         menuName = "Scriptable Objects/" + nameof(LocationDataCollectionSO))]

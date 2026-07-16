@@ -1,7 +1,7 @@
 using DevKit.Solutions;
 using R3;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public class CampaignModelFactory : IFactory<CampaignModel>
     {

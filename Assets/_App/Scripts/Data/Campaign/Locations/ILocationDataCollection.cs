@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DevKit.Saves;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public interface ILocationDataCollection : IVersioned
     {

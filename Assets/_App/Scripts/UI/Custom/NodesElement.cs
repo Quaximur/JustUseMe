@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ITCafe.UI.Custom
+namespace SparksOfTheAbyss.UI.Custom
 {
     [UxmlElement]
     public partial class NodesElement : VisualElement

@@ -1,11 +1,12 @@
 using DevKit.Solutions;
 using R3;
 using SparksOfTheAbyss.Shared;
+using SparksOfTheAbyss.Shared.Localization;
 using SparksOfTheAbyss.TypedKeys;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public class CampaignDataModelFactory : IFactory<CampaignDataModel>
     {

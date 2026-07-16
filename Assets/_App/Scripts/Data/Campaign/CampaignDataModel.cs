@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using R3;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public class CampaignDataModel
     {

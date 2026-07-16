@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public interface ILocationData
     {

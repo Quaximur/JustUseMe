@@ -1,6 +1,6 @@
 using DevKit.Utils;
 
-namespace ITCafe.Data
+namespace SparksOfTheAbyss.Data
 {
     public interface IMissionEvaluation
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DevKit.Saves;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     [Serializable]
     public class LocationState : ICopyable<LocationState>

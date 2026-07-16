@@ -1,4 +1,4 @@
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public interface IMissionResult
     {

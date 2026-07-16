@@ -1,8 +1,8 @@
 using DevKit.Saves;
-// using ITCafe.Data.Settings;
-using ITCafe.Data.Campaign;
+// using SparksOfTheAbyss.Data.Settings;
+using SparksOfTheAbyss.Data.Campaign;
 
-namespace ITCafe.Infrastructure.Saves
+namespace SparksOfTheAbyss.Infrastructure.Saves
 {
     public class SaveStateV1 : SaveStateBase, ISaveState
     {

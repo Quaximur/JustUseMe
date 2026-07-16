@@ -1,6 +1,6 @@
 using R3;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     public class MissionModel : Model<MissionState>
     {

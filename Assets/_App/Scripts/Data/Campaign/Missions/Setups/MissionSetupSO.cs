@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ITCafe.Data
+namespace SparksOfTheAbyss.Data
 {
     [CreateAssetMenu(fileName = nameof(MissionSetupSO), menuName = "Scriptable Objects/" + nameof(MissionSetupSO))]
     public class MissionSetupSO : ScriptableObject, IMissionSetup

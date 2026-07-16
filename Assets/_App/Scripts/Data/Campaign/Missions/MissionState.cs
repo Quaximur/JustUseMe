@@ -1,7 +1,7 @@
 using System;
 using DevKit.Saves;
 
-namespace ITCafe.Data.Campaign
+namespace SparksOfTheAbyss.Data.Campaign
 {
     [Serializable]
     public class MissionState : ICopyable<MissionState>

@@ -2,7 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using R3;
 
-namespace ITCafe
+namespace SparksOfTheAbyss.Shared.Localization
 {
     public interface ILocalizationLoader : IDisposable
     {

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using DevKit.UI.MVVM.Bases;
 using DevKit.Utils;
-using ITCafe.Campaign;
-using ITCafe.Data.Campaign;
+using SparksOfTheAbyss.Campaign;
+using SparksOfTheAbyss.Data.Campaign;
 using ObservableCollections;
 using R3;
 using SparksOfTheAbyss.TypedKeys;
 
-namespace ITCafe.UI.MVVM
+namespace SparksOfTheAbyss.UI.MVVM
 {
     public class CampaignViewModel : ScreenViewModel
     {

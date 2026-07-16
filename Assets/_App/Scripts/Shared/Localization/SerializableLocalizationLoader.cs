@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using R3;
 using UnityEngine;
 
-namespace ITCafe
+namespace SparksOfTheAbyss.Shared.Localization
 {
     [Serializable]
     public class SerializableLocalizationLoader : ILocalizationLoader

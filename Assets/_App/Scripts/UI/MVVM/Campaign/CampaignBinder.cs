@@ -2,9 +2,9 @@ using System;
 using DevKit.Solutions;
 using DevKit.UI.MVVM;
 using DevKit.UI.MVVM.Bases;
-using ITCafe.Data.Campaign;
+using SparksOfTheAbyss.Data.Campaign;
 
-namespace ITCafe.UI.MVVM
+namespace SparksOfTheAbyss.UI.MVVM
 {
     public class CampaignBinder : SimpleAttachBinder<CampaignView, CampaignViewModel>
     {

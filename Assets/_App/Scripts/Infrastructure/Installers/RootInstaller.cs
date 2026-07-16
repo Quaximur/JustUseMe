@@ -1,8 +1,8 @@
 using System;
 using DevKit.UI.MVVM;
-using ITCafe;
 using Reflex.Core;
 using SparksOfTheAbyss.Infrastructure.TypedKeys;
+using SparksOfTheAbyss.Shared.Localization;
 using UnityEngine;
 
 using Lifetime = Reflex.Enums.Lifetime;

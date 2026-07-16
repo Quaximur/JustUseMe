@@ -6,14 +6,14 @@ using DevKit.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;
 using R3;
-using ITCafe.Data.Campaign;
-using ITCafe.UI.Custom;
+using SparksOfTheAbyss.Data.Campaign;
+using SparksOfTheAbyss.UI.Custom;
 using UnityEngine.UIElements.Experimental;
-using ITCafe.Shared;
-using Reflex.Attributes;
 using SparksOfTheAbyss.Shared;
+using Reflex.Attributes;
+using SparksOfTheAbyss.Shared.Localization;
 
-namespace ITCafe.UI.MVVM
+namespace SparksOfTheAbyss.UI.MVVM
 {
     /// <summary>
     /// NOTE: reactive missions/locations opening is not implemented

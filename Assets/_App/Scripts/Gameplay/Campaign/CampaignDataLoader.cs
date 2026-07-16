@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using DevKit.Utils;
-using ITCafe.Data.Campaign;
+using SparksOfTheAbyss.Data.Campaign;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace ITCafe.Campaign
+namespace SparksOfTheAbyss.Campaign
 {
     /// <summary>
     /// Loads and unloads data asynchronously.
