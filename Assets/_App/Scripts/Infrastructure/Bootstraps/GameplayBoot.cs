@@ -46,7 +46,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
                 })
                 .AddTo(ref _disposables);
 
-            return await UniTask.FromResult<Observable<GameplayExitContext>>(gameplayExitSignal);
+            return gameplayExitSignal;
         }
     }
 }

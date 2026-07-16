@@ -1,5 +1,6 @@
 using DevKit.Solutions;
 using R3;
+using SparksOfTheAbyss.SaveState;
 
 namespace SparksOfTheAbyss.Data.Campaign
 {
@@ -8,18 +9,18 @@ namespace SparksOfTheAbyss.Data.Campaign
         public ReadOnlyReactiveProperty<CampaignModel> Current => _current;
 
         private readonly ReactiveProperty<CampaignModel> _current = new();
-        private readonly CampaignState _campaignState;
+        private readonly ISaveStateProvider _saveStateProvider;
 
-        public CampaignModelFactory(CampaignState campaignState)
+        public CampaignModelFactory(ISaveStateProvider saveStateProvider)
         {
-            _campaignState = campaignState;
+            _saveStateProvider = saveStateProvider;
         }
-        
+
         public CampaignModel Create()
         {
-            var campaignModel = new CampaignModel(_campaignState);
+            var campaignModel = new CampaignModel(_saveStateProvider.SaveState.CampaignState);
             _current.Value = campaignModel;
-            
+
             return campaignModel;
         }
     }

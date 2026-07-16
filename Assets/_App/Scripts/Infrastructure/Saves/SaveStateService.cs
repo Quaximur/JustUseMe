@@ -4,17 +4,20 @@ using DevKit.Saves;
 using DevKit.Utils;
 // using SparksOfTheAbyss.Data.Settings;
 using SparksOfTheAbyss.Data.Campaign;
+using SparksOfTheAbyss.Data.SaveState;
+using SparksOfTheAbyss.SaveState;
 
 namespace SparksOfTheAbyss.Infrastructure.Saves
 {
-    public class SaveStateProvider : ISaveStateProvider
+    public class SaveStateService : ISaveStateLoader, ISaveStateProvider
     {
         public ISaveState SaveState => _saveState;
+
         private SaveStateV1 _saveState;
         private readonly ISaveSystem _saveSystem;
         private const string SAVE_STATE = "SAVE_STATE";
 
-        public SaveStateProvider(ISaveSystem saveSystem)
+        public SaveStateService(ISaveSystem saveSystem)
         {
             _saveSystem = saveSystem;
         }
@@ -30,33 +33,34 @@ namespace SparksOfTheAbyss.Infrastructure.Saves
                 //     SaveAll();
 
                 _saveState = _saveSystem.Load<SaveStateV1>(SAVE_STATE);
+
+                if (_saveState != null && _saveState.CampaignState != null)
+                    return;
             }
-            else
+
+            _saveState = new SaveStateV1
             {
-                _saveState = new SaveStateV1
+                // SettingsState = new SettingsState(),
+                CampaignState = new CampaignState
                 {
-                    // SettingsState = new SettingsState(),
-                    CampaignState = new CampaignState
-                    {
-                        Locations = new List<LocationState>
+                    Locations = new List<LocationState>
                         {
                             new("location_1", false, new List<MissionState>
                             {
                                 new("mission_1_1", false)
                             })
                         }
-                    }
-                };
+                }
+            };
 
-                SaveAll();
-                FLogger.Log<SaveStateProvider>("New save file was created");
-            }
+            SaveAll();
+            FLogger.Log<SaveStateService>("New save file was created");
         }
 
         public void SaveAll()
         {
             _saveSystem.Save(SAVE_STATE, _saveState);
-            FLogger.LogGood<SaveStateProvider>("State was saved");
+            FLogger.LogGood<SaveStateService>("State was saved");
         }
     }
 }

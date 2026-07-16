@@ -22,7 +22,8 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
 
         public override async UniTask OnInitialize()
         {
-            var localozationLoader = (ILocalizationLoader)Container.Resolve(_localizationKey.RegistrationType);
+            var localozationLoaderKey = (SerializedLocalizationKey)Container.Resolve(_localizationKey.RegistrationType);
+            var localozationLoader = localozationLoaderKey.Value;
             localozationLoader.Init();
             localozationLoader.AddTo(this);
 

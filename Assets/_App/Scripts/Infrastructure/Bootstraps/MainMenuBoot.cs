@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using R3;
 using Reflex.Core;
 using SparksOfTheAbyss.Infrastructure.Contexts;
+using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.TypedKeys;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
@@ -20,7 +21,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
         }
 
 
-        public UniTask<Observable<MainMenuExitContext>> BootAsync(MainMenuEnterContext mainMenuEnterContext = null)
+        public async UniTask<Observable<MainMenuExitContext>> BootAsync(MainMenuEnterContext mainMenuEnterContext = null)
         {
             _mainMenuEnterContext = mainMenuEnterContext;
             
@@ -29,6 +30,9 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
             // INITIALIZATION
 
             //
+
+            var waitQueue = _container.Resolve<BootstrapWaitQueueKey>().Value;
+            await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
 
             var startSessionSignal = _container.Resolve<StartSessionSubjectKey>().Value;
             var mainMenuExitSignal = new Subject<MainMenuExitContext>();
@@ -40,7 +44,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
                 mainMenuExitSignal.OnNext(mainMenuExitContext);
             }).AddTo(ref _disposables);
 
-            return UniTask.FromResult<Observable<MainMenuExitContext>>(mainMenuExitSignal);
+            return mainMenuExitSignal;
         }
     }
 }

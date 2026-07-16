@@ -1,9 +1,7 @@
 namespace SparksOfTheAbyss.Infrastructure.Saves
 {
-    public interface ISaveStateProvider
+    public interface ISaveStateLoader
     {
-        public ISaveState SaveState { get; }
-
         public void SaveAll();
         public void LoadAll();
     }

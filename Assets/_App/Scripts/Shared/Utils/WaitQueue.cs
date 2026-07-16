@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using DevKit.Utils;
 
 namespace SparksOfTheAbyss.Shared.Utils
 {
@@ -11,7 +12,16 @@ namespace SparksOfTheAbyss.Shared.Utils
         public async UniTask ExecuteAsync()
         {
             foreach (var awaitableFunc in _awaitableFuncs)
-                await awaitableFunc();
+            {
+                try
+                {
+                    await awaitableFunc();
+                }
+                catch (Exception ex)
+                {
+                    FLogger.LogError(ex.ToString());
+                }
+            }
         }
 
         /// <summary> 
