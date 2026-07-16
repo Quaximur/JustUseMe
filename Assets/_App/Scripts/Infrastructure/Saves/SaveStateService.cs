@@ -5,6 +5,7 @@ using DevKit.Utils;
 // using SparksOfTheAbyss.Data.Settings;
 using SparksOfTheAbyss.Data.Campaign;
 using SparksOfTheAbyss.Data.SaveState;
+using SparksOfTheAbyss.Data.Settings;
 using SparksOfTheAbyss.SaveState;
 
 namespace SparksOfTheAbyss.Infrastructure.Saves
@@ -40,7 +41,7 @@ namespace SparksOfTheAbyss.Infrastructure.Saves
 
             _saveState = new SaveStateV1
             {
-                // SettingsState = new SettingsState(),
+                SettingsState = new SettingsState(),
                 CampaignState = new CampaignState
                 {
                     Locations = new List<LocationState>

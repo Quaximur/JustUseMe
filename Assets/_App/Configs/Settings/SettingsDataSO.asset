@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617e48c1cca84e9a87b483fd7ec7317b, type: 3}
+  m_Name: SettingsDataSO
+  m_EditorClassIdentifier: SparksOfTheAbyss.Data::SparksOfTheAbyss.Data.Settings.SettingsDataSO
+  <SoundSectionLabel>k__BackingField: sound_settings_title
+  <VideoSectionLabel>k__BackingField: video_settings_title
+  <InputSectionLabel>k__BackingField: input_settings_title
+  <LanguageSectionLabel>k__BackingField: language_settings_title
+  <SoundIcon>k__BackingField: {fileID: 0}
+  <VideoIcon>k__BackingField: {fileID: 0}
+  <InputIcon>k__BackingField: {fileID: 0}
+  <LanguageIcon>k__BackingField: {fileID: 0}
+  _musicVolumeSliderDataSO: {fileID: 0}
+  _sfxVolumeSliderDataSO: {fileID: 0}
+  _sensitivitySliderDataSO: {fileID: 0}
+  _fpsOptionsDataSO: {fileID: 0}
+  _vsyncToggleDataSO: {fileID: 0}
+  _brightnessSliderDataSO: {fileID: 0}
+  _isPostProcessingEnabledToggleDataSO: {fileID: 0}
+  _isBloomEnabledToggleDataSO: {fileID: 0}
+  _isFilmGrainEnabledToggleDataSO: {fileID: 0}
+  _isAntiAliasingEnabledToggleDataSO: {fileID: 0}
+  _isChromaticAberrationEnabledToggleDataSO: {fileID: 0}
+  _qualityPresetDataSO: {fileID: 0}
+  _resolutionDataSO: {fileID: 0}
+  _fullscreenToggleDataSO: {fileID: 0}
+  _languageDataSO: {fileID: 0}

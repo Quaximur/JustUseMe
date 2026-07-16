@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &185166676911361634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6225251316376865504}
+  - component: {fileID: 7705798607652001187}
+  m_Layer: 0
+  m_Name: SettingsView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6225251316376865504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185166676911361634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7705798607652001187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185166676911361634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88265e17d3cb4bafb0beadb4fabc1284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SparksOfTheAbyss.UI::SparksOfTheAbyss.UI.MVVM.SettingsView
+  _uiAsset: {fileID: 9197481963319205126, guid: 53d537f9a76bcf5448307ee1e09838fb, type: 3}
+  _layer: 0
+  _closeButtonName: CloseButton
+  _closeBackgroundName: CloseBackground
+  _applyButtonName: ApplyButton
+  _cancelChangesButtonName: CancelChangesButton
+  _sectionsContainerName: SectionsContainer
+  _tabButtonsContainerName: TabButtonsContainer
+  _controlInfoContainerName: ControlInfoContainer
+  _controlFactory:
+    _tabClass: settings__section
+    _tabScrollViewClass: cafe__scroll-view
+    _settingBarLabelName: SettingBarLabel
+    _infoEntryClass: settings__info-entry
+    _descriptionClass: settings__info-description
+    _warningDescriptionClass: settings__info-warning
+    _infoTitleClass: settings__info-title
+    _tabButtonAsset: {fileID: 9197481963319205126, guid: b2905de1abc05464ca8152b75774639c, type: 3}
+    _arrowMenuBarAsset: {fileID: 0}
+    _sliderIntBarAsset: {fileID: 9197481963319205126, guid: 25b67a6a10ede5f47b17cf020d88acd3, type: 3}
+    _toggleBarAsset: {fileID: 9197481963319205126, guid: 8e2eff4da41bc864cb5b084b38950082, type: 3}
+    _dropdownBarAsset: {fileID: 9197481963319205126, guid: cc934e3d2ffcc634a910e2af88bc8d9a, type: 3}
+  _buttonClickSfx:
+    <AudioClip>k__BackingField: {fileID: 0}
+    <IsLoop>k__BackingField: 0
+    <VolumeScale>k__BackingField: 1
+    <SpacialBlend>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <PitchShift>k__BackingField: 1
+    <MinPitchShift>k__BackingField: -0.1
+    <MaxPitchShift>k__BackingField: 0.1
+    <IsPausable>k__BackingField: 1
+    <IsSingleton>k__BackingField: 0
+  _resetClickSfx:
+    <AudioClip>k__BackingField: {fileID: 0}
+    <IsLoop>k__BackingField: 0
+    <VolumeScale>k__BackingField: 1
+    <SpacialBlend>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <PitchShift>k__BackingField: 1
+    <MinPitchShift>k__BackingField: -0.1
+    <MaxPitchShift>k__BackingField: 0.1
+    <IsPausable>k__BackingField: 1
+    <IsSingleton>k__BackingField: 0
+  _closeClickSfx:
+    <AudioClip>k__BackingField: {fileID: 0}
+    <IsLoop>k__BackingField: 0
+    <VolumeScale>k__BackingField: 1
+    <SpacialBlend>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <PitchShift>k__BackingField: 1
+    <MinPitchShift>k__BackingField: -0.1
+    <MaxPitchShift>k__BackingField: 0.1
+    <IsPausable>k__BackingField: 1
+    <IsSingleton>k__BackingField: 0
+  _confirmSetup:
+    TitleLid: settings_save_confirm_title
+    MessageLid: settings_save_confirm_message
+    ConfirmTextLid: confirm
+    CancelTextLid: cancel

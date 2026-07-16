@@ -1,11 +1,11 @@
 using System;
-using SparksOfTheAbyss.Shared.Keys;
+using SparksOfTheAbyss.Shared.Refs;
 using UnityEngine;
 
 namespace SparksOfTheAbyss.Shared.Localization
 {
     [Serializable]
-    public abstract class SerializedLocalizationKey : ISerializedTypedKey<SerializableLocalizationLoader>
+    public abstract class SerializedLocalizationRef : ISerializedTypedRef<SerializableLocalizationLoader>
     {
         public abstract Type RegistrationType { get; }
 

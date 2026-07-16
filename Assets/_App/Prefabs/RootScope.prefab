@@ -61,3 +61,7 @@ MonoBehaviour:
   _rootUIBinderPrefab: {fileID: 3386966441830625998, guid: 7379e84a5a485594ea88920f189296ef, type: 3}
   _rootLocalizationLoader:
     _tableCollectionSO: {fileID: 11400000, guid: 7c62069ade56956468c81eded5e41729, type: 2}
+  _settingsLocalizationLoader:
+    _tableCollectionSO: {fileID: 11400000, guid: 3d8c8905ffe772145b831e0810c55d51, type: 2}
+  _settingsViewPrefab: {fileID: 7705798607652001187, guid: 6cda63e3ff9c9b44eb7980fee15b8ffb, type: 3}
+  _confirmPopUpPrefab: {fileID: 2203224453725933363, guid: 2c9007b79f18c2d41bca083d0565f1fd, type: 3}

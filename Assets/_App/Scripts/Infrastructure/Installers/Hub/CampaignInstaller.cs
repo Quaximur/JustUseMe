@@ -5,6 +5,7 @@ using DevKit.UI.MVVM;
 using Reflex.Core;
 using SparksOfTheAbyss.Campaign;
 using SparksOfTheAbyss.Data.Campaign;
+using SparksOfTheAbyss.Shared.Localization;
 using SparksOfTheAbyss.UI.MVVM;
 using UnityEngine;
 using Lifetime = Reflex.Enums.Lifetime;
@@ -12,12 +13,10 @@ using Resolution = Reflex.Enums.Resolution;
 
 namespace SparksOfTheAbyss.Infrastructure.Installers
 {
-    /// <summary>
-    /// Dependencies: <see cref="CampaignLocalizationKey"/>
-    /// </summary>
     public class CampaignInstaller : ModuleInstaller
     {
         [SerializeField] private CampaignView _campaignViewPrefab;
+        [SerializeField] private SerializableLocalizationLoader _campaignLocalizationLoader;
 
         public override void Install(ContainerBuilder builder)
         {
@@ -35,12 +34,14 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
 
             builder.RegisterMVVM<CampaignView, CampaignViewModel, CampaignBinder>(_campaignViewPrefab,
                 viewModelLifetime: Lifetime.Transient);
+
+            builder.RegisterValue(new SettingsLocalizationLoaderKey(_campaignLocalizationLoader));
         }
 
         public override UniTask OnInitialize()
         {
-            var campaignBinder = Container.Resolve<IViewBinder<CampaignViewModel>>();
-            campaignBinder.Open();
+            // var campaignBinder = Container.Resolve<IViewBinder<CampaignViewModel>>();
+            // campaignBinder.Open();
 
             return UniTask.CompletedTask;
         }

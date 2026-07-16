@@ -10,10 +10,13 @@ using Resolution = Reflex.Enums.Resolution;
 
 namespace SparksOfTheAbyss.Infrastructure.Installers
 {
+    /// <summary>
+    /// For dynamic localization registrations only.
+    /// </summary>
     public class LocalizationInstaller : ModuleInstaller
     {
-        [SerializeReference, RealizationSelector(typeof(SerializedLocalizationKey))]
-        private SerializedLocalizationKey _localizationKey;
+        [SerializeReference, RealizationSelector(typeof(SerializedLocalizationRef))]
+        private SerializedLocalizationRef _localizationKey;
 
         public override void Install(ContainerBuilder builder)
         {
@@ -22,7 +25,7 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
 
         public override async UniTask OnInitialize()
         {
-            var localozationLoaderKey = (SerializedLocalizationKey)Container.Resolve(_localizationKey.RegistrationType);
+            var localozationLoaderKey = (SerializedLocalizationRef)Container.Resolve(_localizationKey.RegistrationType);
             var localozationLoader = localozationLoaderKey.Value;
             localozationLoader.Init();
             localozationLoader.AddTo(this);

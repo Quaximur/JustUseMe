@@ -1,9 +1,11 @@
 using Cysharp.Threading.Tasks;
+using DevKit.UI.MVVM;
 using R3;
 using Reflex.Core;
 using SparksOfTheAbyss.Infrastructure.Contexts;
 using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.TypedKeys;
+using SparksOfTheAbyss.UI.MVVM;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
@@ -33,6 +35,9 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 
             var waitQueue = _container.Resolve<BootstrapWaitQueueKey>().Value;
             await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
+
+            var settingsBinder = _container.Resolve<IViewBinder<SettingsViewModel>>();
+            settingsBinder.Open();
 
             var startSessionSignal = _container.Resolve<StartSessionSubjectKey>().Value;
             var mainMenuExitSignal = new Subject<MainMenuExitContext>();

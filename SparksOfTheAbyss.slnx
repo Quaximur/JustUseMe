@@ -3,8 +3,8 @@
   <Project Path="UnityEngine.UI.csproj" />
   <Project Path="SparksOfTheAbyss.Data.csproj" />
   <Project Path="SparksOfTheAbyss.Shared.csproj" />
+  <Project Path="SparksOfTheAbyss.UI.csproj" />
   <Project Path="SparksOfTheAbyss.Editor.csproj" />
   <Project Path="SparksOfTheAbyss.Gameplay.csproj" />
-  <Project Path="SparksOfTheAbyss.UI.csproj" />
   <Project Path="SparksOfTheAbyss.Editor.Internals.csproj" />
 </Solution>
