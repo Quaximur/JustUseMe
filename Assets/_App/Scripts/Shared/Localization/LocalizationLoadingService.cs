@@ -17,7 +17,7 @@ namespace ITCafe
             LocalizationSettings.SelectedLocaleChanged += UnloadTables;
         }
 
-        public async UniTaskVoid LoadTables()
+        public async UniTask LoadTables()
         {
             _locale = LocalizationSettings.SelectedLocale;
             await LocalizationSettings.StringDatabase.PreloadTables(_tableCollection.TableReferences,

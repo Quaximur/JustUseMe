@@ -7,7 +7,7 @@ namespace ITCafe
     public interface ILocalizationLoader : IDisposable
     {
         public void Init();
-        public UniTaskVoid LoadTables();
+        public UniTask LoadTablesAsync();
         public Observable<Unit> LoadTablesObservable();
     }
 }

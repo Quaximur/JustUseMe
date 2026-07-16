@@ -1,6 +1,8 @@
 using System;
 using DevKit.UI.MVVM;
+using ITCafe;
 using Reflex.Core;
+using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using UnityEngine;
 
 using Lifetime = Reflex.Enums.Lifetime;
@@ -11,7 +13,7 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
     public class RootInstaller : MonoBehaviour, IInstaller
     {
         [SerializeField] private RootUIBinder _rootUIBinderPrefab;
-        // [SerializeField] private LocalizationLoader _rootLocalizationLoader;
+        [SerializeField] private SerializableLocalizationLoader _rootLocalizationLoader;
 
         private RootUIBinder _rootUIBinder;
 
@@ -23,7 +25,7 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
             builder.RegisterValue(_rootUIBinder, new Type[] { typeof(IRootUIBinder) });
             builder.OnContainerBuilt += OnBuilt;
 
-            // builder.RegisterValue(new RootLocalizationLoaderRef(_rootLocalizationLoader));
+            builder.RegisterValue(new RootLocalizationLoaderKey(_rootLocalizationLoader));
         }
 
         private void OnBuilt(Container container)

@@ -2,7 +2,9 @@ using Cysharp.Threading.Tasks;
 using DevKit.Utils;
 using Reflex.Core;
 using Reflex.Injectors;
+using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 namespace SparksOfTheAbyss.Infrastructure
 {
@@ -39,12 +41,12 @@ namespace SparksOfTheAbyss.Infrastructure
 
             async UniTaskVoid RunAsync()
             {
-                // await LocalizationSettings.InitializationOperation;
+                await LocalizationSettings.InitializationOperation;
 
-                // var localizationLoader = Container.RootContainer.Resolve<RootLocalizationLoaderRef>().Value;
-                // localizationLoader.Init();
+                var localizationLoader = Container.RootContainer.Resolve<RootLocalizationLoaderKey>().Value;
+                localizationLoader.Init();
 
-                // await localizationLoader.LoadTablesAsync();
+                await localizationLoader.LoadTablesAsync();
 
                 var sceneLoader = new SceneLoader(loadingScreen);
 

@@ -20,7 +20,7 @@ namespace ITCafe
             _localizationLoadingService.Init(_tableCollectionSO);
         }
 
-        public UniTaskVoid LoadTables()
+        public UniTask LoadTablesAsync()
         {
             return _localizationLoadingService.LoadTables();
         }

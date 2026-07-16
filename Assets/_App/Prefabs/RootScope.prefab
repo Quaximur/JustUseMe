@@ -59,3 +59,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SparksOfTheAbyss.Infrastructure::SparksOfTheAbyss.Infrastructure.RootInstaller
   _rootUIBinderPrefab: {fileID: 3386966441830625998, guid: 7379e84a5a485594ea88920f189296ef, type: 3}
+  _rootLocalizationLoader:
+    _tableCollectionSO: {fileID: 11400000, guid: 7c62069ade56956468c81eded5e41729, type: 2}
