@@ -1,12 +1,11 @@
-using SparksOfTheAbyss.Shared;
+using System;
 using SparksOfTheAbyss.Shared.Localization;
 
 namespace SparksOfTheAbyss.TypedKeys
 {
-    public class CampaignLocalizationLoaderKey : TypedKey<ILocalizationLoader>
+    [Serializable]
+    public class CampaignLocalizationLoaderKey : SerializedLocalizationKey
     {
-        public CampaignLocalizationLoaderKey(ILocalizationLoader value) : base(value)
-        {
-        }
+        public override Type RegistrationType => typeof(CampaignLocalizationLoaderKey);
     }
 }

@@ -1,0 +1,258 @@
+.cafe__close-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-color: rgb(100, 120, 140);
+    border-width: 1px;
+    border-radius: 3px;
+    color: rgb(160, 180, 200);
+    font-size: 28px;
+    -unity-text-align: middle-center;
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s ease;
+    padding-left: 1px;
+    padding-bottom: 1px;
+    transition-duration: 0.17s;
+    /* background-image: url("project://database/Assets/_App/Art/Images/white_gradient_fade.png?fileID=2800000&guid=9a27966530d26424683ef0ecc05a7437&type=3#white_gradient_fade"); */
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.08);
+}
+
+.cafe__close-button:disabled {
+    background-color: transparent;
+    border-color: rgb(100, 120, 140);
+}
+
+.cafe__close-button:enabled:hover {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-color: rgb(231, 76, 60);
+    color: rgb(255, 150, 140);
+}
+
+.cafe__close-button:disabled:hover {
+    background-color: transparent;
+    border-color: rgb(100, 120, 140);
+    color: rgb(160, 180, 200);
+}
+
+.cafe__close-button:enabled:active {
+    background-color: rgba(231, 76, 60, 0.3);
+    border-color: rgb(255, 100, 80);
+    color: rgb(255, 180, 170);
+}
+
+.cafe__close-button:disabled:active {
+    background-color: rgba(231, 76, 60, 0.3);
+    border-color: rgb(255, 100, 80);
+    color: rgb(255, 180, 170);
+}
+
+.cafe__close-button:enabled:focus {
+    border-color: rgb(100, 120, 140);
+}
+
+.cafe__close-button:disabled:focus {
+    border-color: rgb(100, 120, 140);
+}
+
+.cafe__control-button {
+    height: 58px;
+    background-color: transparent;
+    border-color: rgb(0, 184, 148);
+    border-width: 1px;
+    border-radius: 3px;
+    font-size: var(--control-font-size);
+    color: rgb(220, 240, 235);
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 12px;
+    margin-left: 0;
+    text-shadow: 1px 1px 0 rgb(0, 0, 0);
+    background-image: url("project://database/Assets/_App/Art/Images/white_gradient_fade.png?fileID=2800000&guid=9a27966530d26424683ef0ecc05a7437&type=3#white_gradient_fade");
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.08);
+}
+
+.cafe__control-button--cyan {
+    background-color: var(--cyan-bg);
+    border-top-color: var(--cyan-border-plus);
+    border-right-color: var(--cyan-border);
+    border-bottom-color: var(--cyan-border);
+    border-left-color: var(--cyan-border);
+}
+
+.cafe__control-button--cyan:disabled {
+    background-color: var(--cyan-bg);
+    border-top-color: var(--cyan-border-plus);
+    border-right-color: var(--cyan-border);
+    border-bottom-color: var(--cyan-border);
+    border-left-color: var(--cyan-border);
+}
+
+.cafe__control-button--cyan:enabled:hover {
+    background-color: var(--cyan-bg-hover);
+    border-color: var(--cyan-border-hover);
+}
+
+.cafe__control-button--cyan:disabled:hover {
+    background-color: var(--cyan-bg);
+    border-color: var(--cyan-border);
+}
+
+.cafe__control-button--cyan:enabled:active {
+    background-color: var(--cyan-bg-active);
+    border-color: var(--cyan-border-active);
+}
+
+.cafe__control-button--cyan:disabled:active {
+    background-color: var(--cyan-bg);
+    border-color: var(--cyan-border);
+}
+
+.cafe__control-button--cyan:enabled:focus {
+    border-color: var(--cyan-border);
+}
+
+.cafe__control-button--cyan:disabled:focus {
+    border-color: var(--cyan-border);
+}
+
+.cafe__control-button--blue {
+    background-color: var(--blue-bg);
+    border-top-color: var(--blue-border-plus);
+    border-right-color: var(--blue-border);
+    border-bottom-color: var(--blue-border);
+    border-left-color: var(--blue-border);
+    color: var(--blue-color);
+}
+
+.cafe__control-button--blue:disabled {
+    background-color: var(--blue-bg);
+    border-top-color: var(--blue-border-plus);
+    border-right-color: var(--blue-border);
+    border-bottom-color: var(--blue-border);
+    border-left-color: var(--blue-border);
+    color: var(--blue-color);
+}
+
+.cafe__control-button--blue:enabled:hover {
+    background-color: var(--blue-bg-hover);
+    border-color: var(--blue-border-hover);
+}
+
+.cafe__control-button--blue:disabled:hover {
+    background-color: var(--blue-bg);
+    border-color: var(--blue-border);
+}
+
+.cafe__control-button--blue:enabled:active {
+    background-color: var(--blue-bg-active);
+    border-color: var(--blue-border-active);
+}
+
+.cafe__control-button--blue:disabled:active {
+    background-color: var(--blue-bg);
+    border-color: var(--blue-border);
+}
+
+.cafe__control-button--blue:enabled:focus {
+    border-color: var(--blue-border);
+}
+
+.cafe__control-button--blue:disabled:focus {
+    border-color: var(--blue-border);
+}
+
+.cafe__control-button--gold {
+    background-color: var(--gold-bg);
+    border-top-color: var(--gold-border-plus);
+    border-right-color: var(--gold-border);
+    border-bottom-color: var(--gold-border);
+    border-left-color: var(--gold-border);
+}
+
+.cafe__control-button--gold:disabled {
+    background-color: var(--gold-bg);
+    border-top-color: var(--gold-border-plus);
+    border-right-color: var(--gold-border);
+    border-bottom-color: var(--gold-border);
+    border-left-color: var(--gold-border);
+}
+
+.cafe__control-button--gold:enabled:hover {
+    background-color: var(--gold-bg-hover);
+    border-color: var(--gold-border-hover);
+}
+
+.cafe__control-button--gold:disabled:hover {
+    background-color: var(--gold-bg);
+    border-color: var(--gold-border);
+}
+
+.cafe__control-button--gold:enabled:active {
+    background-color: var(--gold-bg-active);
+    border-color: var(--gold-border-active);
+}
+
+.cafe__control-button--gold:disabled:active {
+    background-color: var(--gold-bg);
+    border-color: var(--gold-border);
+}
+
+.cafe__control-button--gold:enabled:focus {
+    border-color: var(--gold-border);
+}
+
+.cafe__control-button--gold:disabled:focus {
+    border-color: var(--gold-border);
+}
+
+.cafe__control-button--red {
+    background-color: var(--red-bg);
+    border-top-color: var(--red-border-plus);
+    border-right-color: var(--red-border);
+    border-bottom-color: var(--red-border);
+    border-left-color: var(--red-border);
+    color: var(--red-color);
+}
+
+.cafe__control-button--red:disabled {
+    background-color: var(--red-bg);
+    border-top-color: var(--red-border-plus);
+    border-right-color: var(--red-border);
+    border-bottom-color: var(--red-border);
+    border-left-color: var(--red-border);
+    color: var(--red-color);
+}
+
+.cafe__control-button--red:enabled:hover {
+    background-color: var(--red-bg-hover);
+    border-color: var(--red-border-hover);
+}
+
+.cafe__control-button--red:disabled:hover {
+    background-color: var(--red-bg);
+    border-color: var(--red-border);
+}
+
+.cafe__control-button--red:enabled:active {
+    background-color: var(--red-bg-active);
+    border-color: var(--red-border-active);
+}
+
+.cafe__control-button--red:disabled:active {
+    background-color: var(--red-bg);
+    border-color: var(--red-border);
+}
+
+.cafe__control-button--red:enabled:focus {
+    border-color: var(--red-border);
+}
+
+.cafe__control-button--red:disabled:focus {
+    border-color: var(--red-border);
+}

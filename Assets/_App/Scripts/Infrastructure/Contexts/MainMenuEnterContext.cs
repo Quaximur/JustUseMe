@@ -1,5 +1,3 @@
-using SparksOfTheAbyss.Shared;
-
 namespace SparksOfTheAbyss.Infrastructure.Contexts
 {
     public class MainMenuEnterContext : SceneContext
