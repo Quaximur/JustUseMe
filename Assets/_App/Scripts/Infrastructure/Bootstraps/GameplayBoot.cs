@@ -23,6 +23,8 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
         public async UniTask<Observable<GameplayExitContext>> BootAsync(GameplayEnterContext gameplayEnterContext)
         {
             _gameplayEnterContext = gameplayEnterContext;
+            
+            // wait for additional assets loading from enter context
 
             Build(); // CRUTIAL: build the Container with dependencies
 
