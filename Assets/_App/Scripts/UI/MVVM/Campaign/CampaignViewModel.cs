@@ -56,10 +56,10 @@ namespace SparksOfTheAbyss.UI.MVVM
             BindOpenedLocations(_campaignModel.OpenedLocationsMap);
 
             _campaignDataModel = campaignDataModel;
-            _campaignDataModel.IsLoaded
+            _campaignDataModel.IsLocationsDataLoaded
                 .Where(x => x == true)
                 .Take(1)
-                .Subscribe(_ => BindDataOnLoaded())
+                .Subscribe(_ => BindOnLocationsDataLoaded())
                 .AddTo(_disposables);
         }
 
@@ -125,7 +125,10 @@ namespace SparksOfTheAbyss.UI.MVVM
             }
         }
 
-        private void BindDataOnLoaded()
+        /// <summary>
+        /// Binding after locations data loaded.
+        /// </summary>
+        private void BindOnLocationsDataLoaded()
         {
             FLogger.Log<CampaignViewModel>("Campaign Data Binding");
 
@@ -150,9 +153,6 @@ namespace SparksOfTheAbyss.UI.MVVM
 
         private void OnLocationIdSelected(string id)
         {
-            // if (!string.IsNullOrEmpty(id))
-            //     _campaignModel.SelectedMissionId.Value = null;
-
             if (string.IsNullOrEmpty(id))
             {
                 _campaignDataLoader.DeselectLocation(_campaignDataModel);

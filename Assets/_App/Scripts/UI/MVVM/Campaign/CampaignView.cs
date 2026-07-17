@@ -354,6 +354,8 @@ namespace SparksOfTheAbyss.UI.MVVM
 
         private void OnLocationSelected(ILocationData locationData)
         {
+            // TODO: locationNameLabel for MissionsWidget
+
             if (locationData == null)
             {
                 FLogger.Log<CampaignView>("No location data");

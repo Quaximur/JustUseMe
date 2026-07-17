@@ -7,7 +7,7 @@ namespace SparksOfTheAbyss.Data.Campaign
     public class CampaignDataModel
     {
         public ILocationDataCollection LocationDataCollection => _locationDataCollection;
-        public Observable<bool> IsLoaded => _isLoaded;
+        public Observable<bool> IsLocationsDataLoaded => _isLocationsDataLoaded;
 
         public ReadOnlyReactiveProperty<IReadOnlyDictionary<string, ILocationData>> LocationsDataMap =>
             _locationsDataMap; // should be loaded before model usage
@@ -25,7 +25,7 @@ namespace SparksOfTheAbyss.Data.Campaign
         private readonly ReactiveProperty<IReadOnlyDictionary<string, ILocationData>> _locationsDataMap = new();
         private readonly ReactiveProperty<IReadOnlyDictionary<string, IMissionData>> _currentMissionsDataMap = new();
 
-        private readonly ReactiveProperty<bool> _isLoaded = new(false);
+        private readonly ReactiveProperty<bool> _isLocationsDataLoaded = new(false);
 
         public void SetAllLocationsData(ILocationDataCollection locationDataCollection)
         {
@@ -42,7 +42,7 @@ namespace SparksOfTheAbyss.Data.Campaign
                 _locationsDataMap.Value = new Dictionary<string, ILocationData>();
             }
 
-            _isLoaded.Value = true;
+            _isLocationsDataLoaded.Value = true;
         }
 
         public void SetCurrentMissionsData(IReadOnlyList<IMissionData> currentMissionsData)
