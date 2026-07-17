@@ -42,7 +42,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         [SerializeField] private string _missionNumber = "MissionNumber";
 
         [Space(2)]
-        [SerializeField] private string _missionPanelName = "MissionInfoSection";
+        [SerializeField] private string _missionInfoName = "MissionInfoSection";
         [SerializeField] private string _selectedMissionLabelName = "SelectedMissionLabel";
         [SerializeField] private string _selectedMissionTextName = "SelectedMissionText";
         [SerializeField] private string _missionTextScrollViewName = "MissionTextScrollView";
@@ -56,7 +56,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         [SerializeField] private SfxData _closeClickSfx;
 
         private Button _startButton;
-        private VisualElement _missionPanel;
+        private VisualElement _missionInfo;
         private VisualElement _panelBackground;
         private VisualElement _campaignMap;
         private VisualElement _locationsWidget;
@@ -89,8 +89,8 @@ namespace SparksOfTheAbyss.UI.MVVM
             _localizer = ServiceLocator.Current.Get<ILocalizer>();
 
             _panelBackground = Root.Q<VisualElement>(name: _panelBackgroundName);
-            _missionPanel = Root.Q<VisualElement>(name: _missionPanelName);
-            SetMissionPanelVisible(false);
+            _missionInfo = Root.Q<VisualElement>(name: _missionInfoName);
+            SetMissionInfoVisible(false);
 
             _campaignMap = Root.Q<VisualElement>(name: _campaignMapName);
             _startButton = Root.Q<Button>(name: _startButtonName);
@@ -367,8 +367,6 @@ namespace SparksOfTheAbyss.UI.MVVM
             {
                 tabButton.AddToClassList(USSConst.SELECTED);
                 _selectedLocationTab = tabButton;
-                ViewModel.GoToLocations();
-
             }
             else
             {
@@ -392,7 +390,7 @@ namespace SparksOfTheAbyss.UI.MVVM
                 _selectedMissionText.text = missionData.Description;
                 _localizer.Localize(_selectedMissionText, Constants.MISSIONS_DATA_TABLE);
 
-                SetMissionPanelVisible(true);
+                SetMissionInfoVisible(true);
 
                 if (_missionButtonsMap.TryGetValue(missionData.Id, out var button))
                 {
@@ -418,13 +416,13 @@ namespace SparksOfTheAbyss.UI.MVVM
                 _selectedMissionText.text = string.Empty;
                 
                 HideMissionAim();
-                SetMissionPanelVisible(false);
+                SetMissionInfoVisible(false);
             }
         }
 
-        private void SetMissionPanelVisible(bool isVisible)
+        private void SetMissionInfoVisible(bool isVisible)
         {
-            _missionPanel.style.visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
+            _missionInfo.style.visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void AimAtMission(VisualElement target)

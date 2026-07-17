@@ -50,7 +50,9 @@ namespace SparksOfTheAbyss.Infrastructure.Saves
                             {
                                 new("mission_1_1", false)
                             })
-                        }
+                        },
+                    SelectedLocationId = "location_1",
+                    SelectedMissionId = "mission_1_1"
                 }
             };
 

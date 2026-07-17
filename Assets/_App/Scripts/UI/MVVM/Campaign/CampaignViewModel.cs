@@ -150,8 +150,8 @@ namespace SparksOfTheAbyss.UI.MVVM
 
         private void OnLocationIdSelected(string id)
         {
-            if (!string.IsNullOrEmpty(id))
-                _campaignModel.SelectedMissionId.Value = null;
+            // if (!string.IsNullOrEmpty(id))
+            //     _campaignModel.SelectedMissionId.Value = null;
 
             if (string.IsNullOrEmpty(id))
             {
@@ -172,6 +172,7 @@ namespace SparksOfTheAbyss.UI.MVVM
 
         private void OnMissionIdSelected(string id)
         {
+            // TODO: SelectMission + RefreshCurrentMissionInfoAsync
             _campaignDataLoader.SelectMissionAsync(_campaignDataModel, id).Forget();
         }
 
@@ -183,6 +184,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         private void OnCurrentMissionsDataMapChanged(IReadOnlyDictionary<string, IMissionData> missionsDataMap)
         {
             _currentMissionsDataMap.Value = missionsDataMap ?? new Dictionary<string, IMissionData>();
+            // TODO: SelectMission + RefreshCurrentMissionInfoAsync
             _campaignDataLoader.SelectMissionAsync(_campaignDataModel, _campaignModel.SelectedMissionId.CurrentValue)
                 .Forget();
         }
