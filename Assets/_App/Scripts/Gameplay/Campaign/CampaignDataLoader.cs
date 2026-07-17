@@ -29,24 +29,12 @@ namespace SparksOfTheAbyss.Campaign
         /// <summary>
         /// Use on location selection in Campaign UI.
         /// </summary>
-        public async UniTaskVoid SelectLocationAsync(CampaignDataModel campaignDataModel, string locationId)
+        public async UniTaskVoid RefreshCurrentMissionsAsync(CampaignDataModel campaignDataModel, 
+            IReadOnlyList<string> missionIds)
         {
-            if (string.IsNullOrEmpty(locationId))
-            {
-                DeselectLocation(campaignDataModel);
-                return;
-            }
-            
-            if (!campaignDataModel.LocationsDataMap.CurrentValue.TryGetValue(locationId, out var locationData))
-            {
-                FLogger.LogWarning<CampaignDataLoader>($"No location data found for {locationId}");
-                return;
-            }
-            
             UnloadCurrentMissionsData(campaignDataModel);
-            campaignDataModel.SelectedLocationData.Value = locationData;
 
-            var loadedMissions = await LoadManyAsync<MissionDataSO>(locationData.MissionIds); // path is id
+            var loadedMissions = await LoadManyAsync<MissionDataSO>(missionIds); // path is id
             if (loadedMissions != null)
             {
                 var missionsData = loadedMissions.Where(x => x != null)
@@ -57,7 +45,7 @@ namespace SparksOfTheAbyss.Campaign
             }
             else
             {
-                FLogger.LogError<CampaignDataLoader>($"No missions loaded for {locationId}");
+                FLogger.LogError<CampaignDataLoader>($"No missions found");
             }
         }
 

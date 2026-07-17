@@ -30,7 +30,6 @@
 
 .campaign__header {
     flex-direction: column;
-    margin-bottom: 25px;
     border-bottom-color: rgba(0, 184, 148, 0.3);
     border-bottom-width: 1px;
     width: 320px;
@@ -42,7 +41,6 @@
 
 .campaign__container {
     flex-direction: row;
-    margin-bottom: 25px;
     flex-grow: 1;
 }
 

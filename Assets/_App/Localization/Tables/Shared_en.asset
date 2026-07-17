@@ -17,7 +17,19 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 2996443a36c36ba42b1314b90733aeae, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 364316606988288
+    m_Localized: Campaign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364444474540032
+    m_Localized: Locations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364567350870016
+    m_Localized: Missions
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

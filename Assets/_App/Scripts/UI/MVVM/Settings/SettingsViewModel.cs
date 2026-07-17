@@ -34,14 +34,15 @@ namespace SparksOfTheAbyss.UI.MVVM
         private readonly IViewBinder<ConfirmPopUpViewModel> _confirmBinder;
         private readonly ISaveStateProvider _gameStateProvider;
         private readonly Subject<Unit> _saveSettingsSignal;
+        
+        private SettingsModel _model;
 
         private ReadOnlyReactiveProperty<bool> _isAnyChanges;
-        private SettingsModel _model;
         private readonly ReactiveProperty<ISettingsData> _settingsData = new();
         private ReactiveProperty<SettingsSectionViewModel> _currentSection;
+
         private readonly List<SettingsSectionViewModel> _sections;
         private ConfirmPopUpViewModel _confirmViewModel;
-
         private IDisposable _popUpConfirmDisposable;
         private ConfirmationSetup _confirmSetup;
 
@@ -91,7 +92,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         {
             if (!_isOpened)
                 return;
-            
+
             if (_confirmViewModel != null) // popup is opened
             {
                 FLogger.LogWarning("popup is opened");
@@ -159,7 +160,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         {
             Disposes.ClearDispose(ref _popUpConfirmDisposable);
             VideoSettingsViewModel.Dispose();
-            
+
             base.Dispose();
         }
     }

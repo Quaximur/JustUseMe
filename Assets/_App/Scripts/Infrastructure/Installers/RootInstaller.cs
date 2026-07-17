@@ -46,7 +46,7 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
             RegisterUI(builder);
 
             builder.RegisterValue(new RootLocalizationLoaderKey(_rootLocalizationLoader));
-            builder.RegisterValue(new SettingsLocalizationLoaderKey(_rootLocalizationLoader));
+            builder.RegisterValue(new SettingsLocalizationLoaderKey(_settingsLocalizationLoader));
 
             builder.OnContainerBuilt += OnBuilt;
         }

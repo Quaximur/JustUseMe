@@ -58,6 +58,7 @@ MonoBehaviour:
   _missionsContainerName: MissionsContainer
   _campaignMapName: CampaignMap
   _targetSelectionName: TargetSelection
+  _goToLocationsButtonName: GoToLocationsButton
   _missionButton: {fileID: 9197481963319205126, guid: 525293e9cfd556a43a0f92d16cd9da50, type: 3}
   _missionName: MissionName
   _missionNumber: MissionNumber

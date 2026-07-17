@@ -36,8 +36,11 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
             var waitQueue = _container.Resolve<BootstrapWaitQueueKey>().Value;
             await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
 
-            var settingsBinder = _container.Resolve<IViewBinder<SettingsViewModel>>();
-            settingsBinder.Open();
+            // var settingsBinder = _container.Resolve<IViewBinder<SettingsViewModel>>();
+            // settingsBinder.Open();
+
+            var campaignBinder = _container.Resolve<IViewBinder<CampaignViewModel>>();
+            campaignBinder.Open();
 
             var startSessionSignal = _container.Resolve<StartSessionSubjectKey>().Value;
             var mainMenuExitSignal = new Subject<MainMenuExitContext>();

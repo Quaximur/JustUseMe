@@ -23,27 +23,34 @@ namespace SparksOfTheAbyss.UI.MVVM
         [Header("UI Elements")]
         [SerializeField] private string _panelBackgroundName = "CampaignBackground";
         [SerializeField] private string _startButtonName = "StartButton";
+        [SerializeField] private string _campaignMapName = "CampaignMap";
+
+        [Header("Locations"), Space(4)]
+        [SerializeField] private string _locationsWidgetName = "LocationsWidget";
         [SerializeField] private string _locationTabsContainerName = "LocationsTabsContainer";
+        [SerializeField] private VisualTreeAsset _locationTabButton;
+
+        [Header("Missions"), Space(4)]
+        [SerializeField] private string _missionsWidgetName = "MissionsWidget";
+        [SerializeField] private string _missionsContainerName = "MissionsContainer";
+        [SerializeField] private string _goToLocationsButtonName = "GoToLocationsButton";
+        [SerializeField] private string _targetSelectionName = "TargetSelection";
+
+        [Space(2)]
+        [SerializeField] private VisualTreeAsset _missionButton;
+        [SerializeField] private string _missionName = "MissionName";
+        [SerializeField] private string _missionNumber = "MissionNumber";
+
+        [Space(2)]
         [SerializeField] private string _missionPanelName = "MissionInfoSection";
         [SerializeField] private string _selectedMissionLabelName = "SelectedMissionLabel";
         [SerializeField] private string _selectedMissionTextName = "SelectedMissionText";
         [SerializeField] private string _missionTextScrollViewName = "MissionTextScrollView";
-        [SerializeField] private string _missionsContainerName = "MissionsContainer";
-        [SerializeField] private string _campaignMapName = "CampaignMap";
-        [SerializeField] private string _targetSelectionName = "TargetSelection";
-
-        [Header("Assets"), Space(4)]
-        [SerializeField] private VisualTreeAsset _missionButton;
-        [SerializeField] private string _missionName = "MissionName";
-        [SerializeField] private string _missionNumber = "MissionNumber";
 
         [Space(2f)]
         [SerializeField] private VisualTreeAsset _starLi;
         [SerializeField] private string _starsColumnName = "StarsColumn";
 
-        [Space(2f)]
-        [SerializeField] private VisualTreeAsset _locationTabButton;
-        
         [Header("SFX"), Space(4)]
         [SerializeField] private SfxData _buttonClickSfx;
         [SerializeField] private SfxData _closeClickSfx;
@@ -52,14 +59,16 @@ namespace SparksOfTheAbyss.UI.MVVM
         private VisualElement _missionPanel;
         private VisualElement _panelBackground;
         private VisualElement _campaignMap;
+        private VisualElement _locationsWidget;
         private VisualElement _locationTabsContainer;
         private Label _selectedMissionLabel;
         private Label _selectedMissionText;
         private ScrollView _missionTextScrollView;
         private VisualElement _missionsContainer;
-        private VisualElement _panelWhiteBackground;
         private NodesElement _nodes;
         private VisualElement _missionAim;
+        private Button _goToLocationsButton;
+        private VisualElement _missionsWidget;
 
         private Button _selectedMissionButton;
         private VisualElement _selectedLocationTab;
@@ -70,32 +79,39 @@ namespace SparksOfTheAbyss.UI.MVVM
         private IValueAnimation _selectionAnimation;
         private ILocalizer _localizer;
         private CompositeDisposable _disposables;
-        
+
         [Inject] private readonly AudioPlayer _audioPlayer;
 
         protected override void OnInit()
         {
             base.OnInit();
-            
+
             _localizer = ServiceLocator.Current.Get<ILocalizer>();
 
             _panelBackground = Root.Q<VisualElement>(name: _panelBackgroundName);
             _missionPanel = Root.Q<VisualElement>(name: _missionPanelName);
             SetMissionPanelVisible(false);
+
             _campaignMap = Root.Q<VisualElement>(name: _campaignMapName);
             _startButton = Root.Q<Button>(name: _startButtonName);
+            _locationsWidget = Root.Q<VisualElement>(name: _locationsWidgetName);
             _locationTabsContainer = Root.Q<VisualElement>(name: _locationTabsContainerName);
             _locationTabsContainer.Clear();
+
             _selectedMissionLabel = Root.Q<Label>(name: _selectedMissionLabelName);
             _selectedMissionText = Root.Q<Label>(name: _selectedMissionTextName);
             _missionTextScrollView = Root.Q<ScrollView>(name: _missionTextScrollViewName);
             _missionsContainer = Root.Q<VisualElement>(name: _missionsContainerName);
             _missionsContainer.Clear();
+
             _nodes = Root.Q<NodesElement>();
             _nodes.ClearConnections();
+
             _missionAim = Root.Q<VisualElement>(name: _targetSelectionName);
+            _goToLocationsButton = Root.Q<Button>(name: _goToLocationsButtonName);
+            _missionsWidget = Root.Q<VisualElement>(name: _missionsWidgetName);
             HideMissionAim();
-            // Начальное состояние
+
             // _content.AddToClassList($"{_contentClass}--disabled");
             // _content.RegisterCallback<TransitionEndEvent>(_ =>
             // {
@@ -109,28 +125,25 @@ namespace SparksOfTheAbyss.UI.MVVM
             base.OnBind(viewModel);
 
             _disposables = new CompositeDisposable();
-            
-            ViewModel.LocationsDataMap.Subscribe(OnLocationsChanged).AddTo(_disposables);
-            ViewModel.SelectedLocationData.Subscribe(OnLocationSelected).AddTo(_disposables);
-            ViewModel.CurrentMissionsDataMap.Subscribe(OnCurrentMissionsChanged).AddTo(_disposables);
-            ViewModel.SelectedMissionData.Subscribe(OnMissionSelected).AddTo(_disposables);
 
-            _startButton.SubscribeCallbackOnce<ClickEvent>(OnStartGameplayClicked).AddTo(_disposables);
+            ViewModel.LocationsDataMap.Subscribe(OnLocationsChanged)
+                .AddTo(_disposables);
+            ViewModel.SelectedLocationData.Subscribe(OnLocationSelected)
+                .AddTo(_disposables);
+            ViewModel.CurrentMissionsDataMap.Subscribe(OnCurrentMissionsChanged)
+                .AddTo(_disposables);
+            ViewModel.SelectedMissionData.Subscribe(OnMissionSelected)
+                .AddTo(_disposables);
 
-            _panelBackground.RegisterCallback<ClickEvent>(_ => ViewModel.SelectMission(null));
-        }
+            _startButton.SubscribeCallbackOnce<ClickEvent>(OnStartGameplayClicked)
+                .AddTo(_disposables);
 
-        public override void OnOpening()
-        {
-            Show();
-            SetCampaignMapEnabled(false);
-            StartCoroutine(OpenAnimation());
+            _panelBackground.SubscribeCallback<ClickEvent>(_ => ViewModel.SelectMission(null))
+                .AddTo(_disposables);
+            _goToLocationsButton.SubscribeCallback<ClickEvent>(_ => ViewModel.GoToLocations())
+                .AddTo(_disposables);
 
-            IEnumerator OpenAnimation()
-            {
-                yield return null;
-                SetCampaignMapEnabled(true);
-            }
+            ViewModel.OnStateShanged.Subscribe(OnStateChanged);
         }
 
         public override void OnClosing()
@@ -156,6 +169,31 @@ namespace SparksOfTheAbyss.UI.MVVM
             PlayButtonSfx();
             ViewModel.SelectMission(missionData);
             e.StopPropagation();
+        }
+
+        private void OnStateChanged(CampaignViewState state)
+        {
+            switch (state)
+            {
+                case CampaignViewState.None:
+                    _missionsWidget.style.display = DisplayStyle.None;
+                    _goToLocationsButton.style.display = DisplayStyle.None;
+                    break;
+
+                case CampaignViewState.Missions:
+                    _missionsWidget.style.display = DisplayStyle.Flex;
+                    _goToLocationsButton.style.display = DisplayStyle.Flex;
+                    _locationsWidget.style.display = DisplayStyle.None;
+                    break;
+
+                case CampaignViewState.Locations:
+                    _missionsWidget.style.display = DisplayStyle.None;
+                    _goToLocationsButton.style.display = DisplayStyle.None;
+                    _locationsWidget.style.display = DisplayStyle.Flex;
+                    SetCampaignMapEnabled(false);
+                    break;
+            }
+
         }
 
         private void OnLocationsChanged(IReadOnlyDictionary<string, ILocationData> locationDataMap)
@@ -243,7 +281,7 @@ namespace SparksOfTheAbyss.UI.MVVM
             var missionButton = missionButtonContainer.Q<Button>();
             _missionButtonsMap[missionData.Id] = missionButton;
             missionButton.RegisterCallback<ClickEvent, IMissionData>(OnSelectMissionClicked, missionData);
-            
+
             var missionName = missionButtonContainer.Q<Label>(name: _missionName);
             missionName.text = missionData.Name;
             _localizer.Localize(missionName, Constants.MISSIONS_DATA_TABLE);
@@ -299,6 +337,7 @@ namespace SparksOfTheAbyss.UI.MVVM
                 StopCoroutine(_showMapCoroutine);
                 _showMapCoroutine = null;
             }
+            FLogger.Log($"SetCampaignMapEnabled: {isEnabled}");
 
             if (isEnabled)
                 _showMapCoroutine = StartCoroutine(ShowMap());
@@ -328,6 +367,8 @@ namespace SparksOfTheAbyss.UI.MVVM
             {
                 tabButton.AddToClassList(USSConst.SELECTED);
                 _selectedLocationTab = tabButton;
+                ViewModel.GoToLocations();
+
             }
             else
             {
@@ -344,13 +385,13 @@ namespace SparksOfTheAbyss.UI.MVVM
             {
                 var isOpened = ViewModel.OpenedMissionsMap.ContainsKey(missionData.Id);
                 _startButton.SetEnabled(isOpened);
-                
+
                 _selectedMissionLabel.text = missionData.Name;
                 _localizer.Localize(_selectedMissionLabel, Constants.MISSIONS_DATA_TABLE);
-                
+
                 _selectedMissionText.text = missionData.Description;
                 _localizer.Localize(_selectedMissionText, Constants.MISSIONS_DATA_TABLE);
-                
+
                 SetMissionPanelVisible(true);
 
                 if (_missionButtonsMap.TryGetValue(missionData.Id, out var button))
@@ -375,6 +416,7 @@ namespace SparksOfTheAbyss.UI.MVVM
                 _selectedMissionButton = null;
                 _selectedMissionLabel.text = string.Empty;
                 _selectedMissionText.text = string.Empty;
+                
                 HideMissionAim();
                 SetMissionPanelVisible(false);
             }
@@ -418,13 +460,13 @@ namespace SparksOfTheAbyss.UI.MVVM
         {
             _missionAim.style.visibility = Visibility.Hidden;
         }
-        
+
         private void PlayButtonSfx()
         {
             if (_buttonClickSfx.IsValid)
                 _audioPlayer.GetSfxBuilder().Play(_buttonClickSfx);
         }
-        
+
         private void PlayCloseSfx()
         {
             if (_closeClickSfx.IsValid)

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4545234842660099908}
   - component: {fileID: 7543701072918858562}
   - component: {fileID: 735581584599806242}
+  - component: {fileID: -7163465700422227999}
   m_Layer: 0
   m_Name: RootScope
   m_TagString: Untagged
@@ -65,3 +66,15 @@ MonoBehaviour:
     _tableCollectionSO: {fileID: 11400000, guid: 3d8c8905ffe772145b831e0810c55d51, type: 2}
   _settingsViewPrefab: {fileID: 7705798607652001187, guid: 6cda63e3ff9c9b44eb7980fee15b8ffb, type: 3}
   _confirmPopUpPrefab: {fileID: 2203224453725933363, guid: 2c9007b79f18c2d41bca083d0565f1fd, type: 3}
+--- !u!114 &-7163465700422227999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536706815605560894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e9c678e8ad14d4094fc444a5148949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: R3.Unity::R3.Triggers.ObservableDestroyTrigger

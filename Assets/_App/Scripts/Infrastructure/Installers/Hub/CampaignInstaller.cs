@@ -35,7 +35,7 @@ namespace SparksOfTheAbyss.Infrastructure.Installers
             builder.RegisterMVVM<CampaignView, CampaignViewModel, CampaignBinder>(_campaignViewPrefab,
                 viewModelLifetime: Lifetime.Transient);
 
-            builder.RegisterValue(new SettingsLocalizationLoaderKey(_campaignLocalizationLoader));
+            builder.RegisterValue(new CampaignLocalizationLoaderKey(_campaignLocalizationLoader));
         }
 
         public override UniTask OnInitialize()

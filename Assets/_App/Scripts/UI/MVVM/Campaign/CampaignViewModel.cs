@@ -9,6 +9,13 @@ using SparksOfTheAbyss.TypedKeys;
 
 namespace SparksOfTheAbyss.UI.MVVM
 {
+    public enum CampaignViewState
+    {
+        None, // if Location is selected but not exist already (due to game update). Wait for data
+        Locations,
+        Missions
+    }
+
     public class CampaignViewModel : ScreenViewModel
     {
         public Observable<IReadOnlyDictionary<string, ILocationData>> LocationsDataMap => _locationsDataMap;
@@ -17,6 +24,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         public ReadOnlyReactiveProperty<IMissionData> SelectedMissionData => _selectedMissionData;
         public IReadOnlyObservableDictionary<string, LocationModel> OpenedLocationsMap => _openedLocationsMap;
         public IReadOnlyObservableDictionary<string, MissionModel> OpenedMissionsMap => _openedMissionsMap;
+        public Observable<CampaignViewState> OnStateShanged => _onStateChanged;
 
         private readonly CampaignDataLoader _campaignDataLoader;
         private readonly Subject<Unit> _startMissionSubject;
@@ -30,6 +38,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         private readonly ReactiveProperty<IReadOnlyDictionary<string, IMissionData>> _currentMissionsDataMap = new();
         private readonly ObservableDictionary<string, MissionModel> _openedMissionsMap = new();
         private readonly ObservableDictionary<string, LocationModel> _openedLocationsMap = new();
+        private readonly ReactiveProperty<CampaignViewState> _onStateChanged = new(CampaignViewState.None);
         private CompositeDisposable _disposables;
 
         public CampaignViewModel(CampaignDataLoader campaignDataLoader,
@@ -68,6 +77,18 @@ namespace SparksOfTheAbyss.UI.MVVM
 
             _campaignModel.SelectedLocationId.Value = locationData?.Id;
             _campaignModel.SelectedMissionId.Value = null;
+            GoToMissions();
+        }
+
+        public void GoToLocations()
+        {
+            SelectLocation(null);
+            _onStateChanged.Value = CampaignViewState.Locations;
+        }
+
+        private void GoToMissions()
+        {
+            _onStateChanged.Value = CampaignViewState.Missions;
         }
 
         public void SelectMission(IMissionData missionData)
@@ -111,31 +132,59 @@ namespace SparksOfTheAbyss.UI.MVVM
             _campaignDataModel.LocationsDataMap.Subscribe(x => _locationsDataMap.Value = x)
                 .AddTo(_disposables);
 
-            _campaignDataModel.SelectedLocationData.Subscribe(x => _selectedLocationData.Value = x)
+            _campaignDataModel.SelectedLocationData.Subscribe(OnCurrentLocationDataChanged)
                 .AddTo(_disposables);
 
-            _campaignDataModel.CurrentMissionsDataMap.Subscribe(x =>
-            {
-                _currentMissionsDataMap.Value = x ?? new Dictionary<string, IMissionData>();
-                _campaignDataLoader.SelectMissionAsync(_campaignDataModel, _campaignModel.SelectedMissionId.CurrentValue)
-                    .Forget();
-            }).AddTo(_disposables);
+            _campaignDataModel.CurrentMissionsDataMap.Subscribe(OnCurrentMissionsDataMapChanged)
+                .AddTo(_disposables);
 
             _campaignDataModel.SelectedMissionData.Subscribe(x => _selectedMissionData.Value = x)
                 .AddTo(_disposables);
-            
-            _campaignDataLoader.SelectLocationAsync(_campaignDataModel, _campaignModel.SelectedLocationId.Value)
-                .Forget();
-            _campaignModel.SelectedLocationId.Skip(1).Subscribe(x =>
-            {
-                if (!string.IsNullOrEmpty(x))
-                    _campaignModel.SelectedMissionId.Value = null;
-                _campaignDataLoader.SelectLocationAsync(_campaignDataModel, x).Forget();
-            }).AddTo(_disposables);
 
-            _campaignModel.SelectedMissionId.Subscribe(x =>
-                _campaignDataLoader.SelectMissionAsync(_campaignDataModel, x).Forget()
-            ).AddTo(_disposables);
+            _campaignModel.SelectedLocationId
+                .Subscribe(OnLocationIdSelected)
+                .AddTo(_disposables);
+
+            _campaignModel.SelectedMissionId.Subscribe(OnMissionIdSelected).AddTo(_disposables);
+        }
+
+        private void OnLocationIdSelected(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+                _campaignModel.SelectedMissionId.Value = null;
+
+            if (string.IsNullOrEmpty(id))
+            {
+                _campaignDataLoader.DeselectLocation(_campaignDataModel);
+                return;
+            }
+
+            if (!_campaignDataModel.LocationsDataMap.CurrentValue.TryGetValue(id, out var locationData))
+            {
+                FLogger.LogWarning<CampaignDataLoader>($"No location data found for {id}");
+                return;
+            }
+
+            _campaignDataModel.SelectedLocationData.Value = locationData;
+            _campaignDataLoader.RefreshCurrentMissionsAsync(_campaignDataModel, locationData.MissionIds).Forget();
+            _onStateChanged.Value = CampaignViewState.Missions;
+        }
+
+        private void OnMissionIdSelected(string id)
+        {
+            _campaignDataLoader.SelectMissionAsync(_campaignDataModel, id).Forget();
+        }
+
+        private void OnCurrentLocationDataChanged(ILocationData locationData)
+        {
+            _selectedLocationData.Value = locationData;
+        }
+
+        private void OnCurrentMissionsDataMapChanged(IReadOnlyDictionary<string, IMissionData> missionsDataMap)
+        {
+            _currentMissionsDataMap.Value = missionsDataMap ?? new Dictionary<string, IMissionData>();
+            _campaignDataLoader.SelectMissionAsync(_campaignDataModel, _campaignModel.SelectedMissionId.CurrentValue)
+                .Forget();
         }
 
         public override void Dispose()
