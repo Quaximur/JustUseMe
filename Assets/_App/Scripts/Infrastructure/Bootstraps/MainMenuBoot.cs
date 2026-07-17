@@ -6,6 +6,7 @@ using SparksOfTheAbyss.Infrastructure.Contexts;
 using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.TypedKeys;
 using SparksOfTheAbyss.UI.MVVM;
+using UnityEngine;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
@@ -33,16 +34,10 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 
             //
 
-            var waitQueue = _container.Resolve<BootstrapWaitQueueKey>().Value;
+            var waitQueue = Container.Resolve<BootstrapWaitQueueKey>().Value;
             await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
 
-            // var settingsBinder = _container.Resolve<IViewBinder<SettingsViewModel>>();
-            // settingsBinder.Open();
-
-            var campaignBinder = _container.Resolve<IViewBinder<CampaignViewModel>>();
-            campaignBinder.Open();
-
-            var startSessionSignal = _container.Resolve<StartSessionSubjectKey>().Value;
+            var startSessionSignal = Container.Resolve<StartSessionSubjectKey>().Value;
             var mainMenuExitSignal = new Subject<MainMenuExitContext>();
             var gameplayEnterContext = new GameplayEnterContext(); // TODO: take context from state
             var mainMenuExitContext = new MainMenuExitContext(gameplayEnterContext);

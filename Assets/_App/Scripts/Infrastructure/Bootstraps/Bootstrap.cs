@@ -14,7 +14,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
     {
         [SerializeField] private ContainerScope _containerScope;
 
-        protected Container _container;
+        protected Container Container { get; private set; }
         protected DisposableBag _disposables = new();
 
         protected void Build()
@@ -22,7 +22,7 @@ namespace SparksOfTheAbyss.Infrastructure.Bootstraps
             ContainerScope.OnSceneContainerBuilding += AdditionalRegistrations;
 
             _containerScope.Run();
-            _container = gameObject.scene.GetSceneContainer();
+            Container = gameObject.scene.GetSceneContainer();
         }
 
         protected virtual void OnConfigure(ContainerBuilder builder)

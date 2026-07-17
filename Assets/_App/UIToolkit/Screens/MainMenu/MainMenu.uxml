@@ -1,0 +1,24 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_App/UIToolkit/Screens/MainMenu/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=b72b6d07834039643a1308ab69eea901&amp;type=3#MainMenuStyles"/>
+    <ui:VisualElement name="MainMenuVFX" style="flex-grow: 1; width: 100%; height: 100%; position: absolute; align-items: center; background-color: rgb(0, 0, 0);">
+        <ui:VisualElement class="menu__shader" style="flex-grow: 1; position: absolute;"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="RootWrapper" picking-mode="Ignore" class="main-menu__root">
+        <ui:VisualElement name="ContentContainer" class="main-menu__content">
+            <ui:VisualElement name="MenuPanel" class="menu__panel">
+                <ui:VisualElement name="HeaderSection" class="main-menu__header">
+                    <ui:Label text="Stars Of The Abyss" class="main-menu__title"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="MenuButtons" class="main-menu__buttons">
+                    <ui:Button name="PlayButton" focusable="false" text="play" class="cafe__control-button cafe__control-button--cyan"/>
+                    <ui:Button name="SettingsButton" focusable="false" text="settings" class="cafe__control-button cafe__control-button--blue"/>
+                    <ui:Button name="CreditsButton" focusable="false" text="credits" class="cafe__control-button cafe__control-button--gold"/>
+                    <ui:Button name="ExitButton" focusable="false" text="exit" class="cafe__control-button cafe__control-button--red"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Footer" class="main-menu__footer">
+            <ui:Label text="© 2026 Emil Alekseev ( -Quaximur)" class="main-menu__copyright"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -11,7 +11,6 @@ namespace SparksOfTheAbyss.UI.MVVM
 {
     public enum CampaignViewState
     {
-        None, // if Location is selected but not exist already (due to game update). Wait for data
         Locations,
         Missions
     }
@@ -38,7 +37,7 @@ namespace SparksOfTheAbyss.UI.MVVM
         private readonly ReactiveProperty<IReadOnlyDictionary<string, IMissionData>> _currentMissionsDataMap = new();
         private readonly ObservableDictionary<string, MissionModel> _openedMissionsMap = new();
         private readonly ObservableDictionary<string, LocationModel> _openedLocationsMap = new();
-        private readonly ReactiveProperty<CampaignViewState> _onStateChanged = new(CampaignViewState.None);
+        private readonly ReactiveProperty<CampaignViewState> _onStateChanged = new(CampaignViewState.Locations);
         private CompositeDisposable _disposables;
 
         public CampaignViewModel(CampaignDataLoader campaignDataLoader,
@@ -77,18 +76,13 @@ namespace SparksOfTheAbyss.UI.MVVM
 
             _campaignModel.SelectedLocationId.Value = locationData?.Id;
             _campaignModel.SelectedMissionId.Value = null;
-            GoToMissions();
+            _onStateChanged.Value = CampaignViewState.Missions;
         }
 
         public void GoToLocations()
         {
             SelectLocation(null);
             _onStateChanged.Value = CampaignViewState.Locations;
-        }
-
-        private void GoToMissions()
-        {
-            _onStateChanged.Value = CampaignViewState.Missions;
         }
 
         public void SelectMission(IMissionData missionData)

@@ -11,7 +11,7 @@ using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.SaveState;
 using SparksOfTheAbyss.Shared.Localization;
 using SparksOfTheAbyss.UI.MVVM;
-using TradeArea.UI.ConfirmPopUp;
+using SparksOfTheAbyss.UI.MVVM;
 using UnityEngine;
 
 using Lifetime = Reflex.Enums.Lifetime;

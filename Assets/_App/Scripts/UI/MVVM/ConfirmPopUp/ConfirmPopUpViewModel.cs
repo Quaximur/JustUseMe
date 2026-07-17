@@ -3,7 +3,7 @@ using R3;
 using SparksOfTheAbyss.Data;
 using UnityEngine;
 
-namespace TradeArea.UI.ConfirmPopUp
+namespace SparksOfTheAbyss.UI.MVVM
 {
     public class ConfirmPopUpViewModel : ScreenViewModel
     {

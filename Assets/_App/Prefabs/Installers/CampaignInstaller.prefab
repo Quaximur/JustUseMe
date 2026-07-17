@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1994811676168320300
+--- !u!1 &9017162313332398007
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3058149183905562626}
-  - component: {fileID: 927751902171329749}
+  - component: {fileID: 9073433971428344426}
+  - component: {fileID: 5844951452060213211}
   m_Layer: 0
-  m_Name: RootUICleanup
+  m_Name: CampaignInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3058149183905562626
+--- !u!4 &9073433971428344426
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994811676168320300}
+  m_GameObject: {fileID: 9017162313332398007}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &927751902171329749
+--- !u!114 &5844951452060213211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994811676168320300}
+  m_GameObject: {fileID: 9017162313332398007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc321202e6a33a04f89c5e83dd9bac81, type: 3}
+  m_Script: {fileID: 11500000, guid: d78bb953a496a9d4d945ce2677e12401, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: SparksOfTheAbyss.Infrastructure::SparksOfTheAbyss.Infrastructure.Installers.RootUICleanupInstaller
+  m_EditorClassIdentifier: SparksOfTheAbyss.Infrastructure::SparksOfTheAbyss.Infrastructure.Installers.CampaignInstaller
+  _campaignViewPrefab: {fileID: 4576610215149363540, guid: 068dea8132976d44a8499908834654f2, type: 3}
+  _campaignLocalizationLoader:
+    _tableCollectionSO: {fileID: 11400000, guid: 7165b103f900bc3478e184075e21720d, type: 2}

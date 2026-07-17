@@ -52,7 +52,7 @@ namespace SparksOfTheAbyss.Infrastructure.Saves
                             })
                         },
                     SelectedLocationId = "location_1",
-                    SelectedMissionId = "mission_1_1"
+                    // SelectedMissionId = "mission_1_1"
                 }
             };
 

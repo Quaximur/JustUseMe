@@ -175,25 +175,21 @@ namespace SparksOfTheAbyss.UI.MVVM
         {
             switch (state)
             {
-                case CampaignViewState.None:
+                case CampaignViewState.Locations:
                     _missionsWidget.style.display = DisplayStyle.None;
                     _goToLocationsButton.style.display = DisplayStyle.None;
+                    _locationsWidget.style.display = DisplayStyle.Flex;
+                    SetCampaignMapEnabled(false);
+                    // TODO: OpenLocationsAnimation
                     break;
 
                 case CampaignViewState.Missions:
                     _missionsWidget.style.display = DisplayStyle.Flex;
                     _goToLocationsButton.style.display = DisplayStyle.Flex;
                     _locationsWidget.style.display = DisplayStyle.None;
-                    break;
-
-                case CampaignViewState.Locations:
-                    _missionsWidget.style.display = DisplayStyle.None;
-                    _goToLocationsButton.style.display = DisplayStyle.None;
-                    _locationsWidget.style.display = DisplayStyle.Flex;
-                    SetCampaignMapEnabled(false);
+                    // TODO: OpenMissionsAnimation
                     break;
             }
-
         }
 
         private void OnLocationsChanged(IReadOnlyDictionary<string, ILocationData> locationDataMap)
@@ -416,7 +412,7 @@ namespace SparksOfTheAbyss.UI.MVVM
                 _selectedMissionButton = null;
                 _selectedMissionLabel.text = string.Empty;
                 _selectedMissionText.text = string.Empty;
-                
+
                 HideMissionAim();
                 SetMissionInfoVisible(false);
             }

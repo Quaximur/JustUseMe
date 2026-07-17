@@ -8,7 +8,7 @@ using SparksOfTheAbyss.Data;
 using SparksOfTheAbyss.Data.Settings;
 using R3;
 using SparksOfTheAbyss.SaveState;
-using TradeArea.UI.ConfirmPopUp;
+using SparksOfTheAbyss.UI.MVVM;
 using SparksOfTheAbyss.Shared;
 
 namespace SparksOfTheAbyss.UI.MVVM
