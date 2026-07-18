@@ -8,23 +8,23 @@ using UnityEngine;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
-    public class MainMenuBoot : Bootstrap
+    public class MainMenuBoot : Bootstrap<MainMenuEnterContext, MainMenuExitContext>
     {
         private MainMenuEnterContext _mainMenuEnterContext;
 
-       protected override void OnConfigure(ContainerBuilder builder)
+        protected override void OnConfigure(ContainerBuilder builder)
         {
             // REGISTRATIONS
 
             builder.RegisterValue(new StartSessionSubjectKey(new Subject<Unit>()));
- 
+
             //
         }
 
-        public async UniTask<Observable<MainMenuExitContext>> BootAsync(MainMenuEnterContext mainMenuEnterContext = null)
+        public override async UniTask<Observable<MainMenuExitContext>> BootAsync(MainMenuEnterContext mainMenuEnterContext = null)
         {
             _mainMenuEnterContext = mainMenuEnterContext;
-            
+
             Build();
 
             // INITIALIZATION

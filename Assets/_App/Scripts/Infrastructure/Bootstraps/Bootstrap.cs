@@ -7,15 +7,21 @@ using R3;
 using DevKit.Utils;
 using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.Shared.Utils;
+using SparksOfTheAbyss.Infrastructure.Contexts;
+using Cysharp.Threading.Tasks;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
-    public abstract class Bootstrap : MonoBehaviour, IDisposable
+    public abstract class Bootstrap<TEnterContext, TExitContext> : MonoBehaviour, IDisposable
+        where TEnterContext : IEnterContext
+        where TExitContext : IExitContext
     {
         [SerializeField] private ContainerScope _containerScope;
 
         protected Container Container { get; private set; }
         protected DisposableBag _disposables = new();
+
+        public abstract UniTask<Observable<TExitContext>> BootAsync(TEnterContext mainMenuEnterContext);
 
         protected void Build()
         {

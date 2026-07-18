@@ -11,7 +11,6 @@ using SparksOfTheAbyss.Infrastructure.TypedKeys;
 using SparksOfTheAbyss.SaveState;
 using SparksOfTheAbyss.Shared.Localization;
 using SparksOfTheAbyss.UI.MVVM;
-using SparksOfTheAbyss.UI.MVVM;
 using UnityEngine;
 
 using Lifetime = Reflex.Enums.Lifetime;

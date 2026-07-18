@@ -7,24 +7,25 @@ using SparksOfTheAbyss.TypedKeys;
 
 namespace SparksOfTheAbyss.Infrastructure.Bootstraps
 {
-    public class GameplayBoot : Bootstrap
+    public class GameplayBoot : Bootstrap<GameplayEnterContext, GameplayExitContext>
     {
         private GameplayEnterContext _gameplayEnterContext;
 
         protected override void OnConfigure(ContainerBuilder builder)
         {
             // REGISTRATIONS
+            // + additional loaded configs registering from IEnterContext
 
             builder.RegisterValue(new ExitGameplaySubjectKey(new Subject<Unit>()));
 
             //
         }
 
-        public async UniTask<Observable<GameplayExitContext>> BootAsync(GameplayEnterContext gameplayEnterContext)
+        public override async UniTask<Observable<GameplayExitContext>> BootAsync(GameplayEnterContext gameplayEnterContext)
         {
             _gameplayEnterContext = gameplayEnterContext;
-            
-            // wait for additional assets loading from enter context
+
+            // + wait for additional assets loading from enter context
 
             Build(); // CRUTIAL: build the Container with dependencies
 

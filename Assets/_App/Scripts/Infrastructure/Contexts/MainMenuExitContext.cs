@@ -3,7 +3,7 @@ namespace SparksOfTheAbyss.Infrastructure.Contexts
     /// <summary>
     /// Info to enter the Gameplay scene from the Main menu. Exiting the Main menu leads to the Gameplay.
     /// </summary>
-    public class MainMenuExitContext
+    public class MainMenuExitContext : IExitContext
     {
         public GameplayEnterContext GameplayEnterContext { get; }
 

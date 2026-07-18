@@ -1,7 +1,7 @@
 ﻿<Solution>
+  <Project Path="SparksOfTheAbyss.UI.csproj" />
   <Project Path="SparksOfTheAbyss.Infrastructure.csproj" />
   <Project Path="UnityEngine.UI.csproj" />
-  <Project Path="SparksOfTheAbyss.UI.csproj" />
   <Project Path="SparksOfTheAbyss.Data.csproj" />
   <Project Path="SparksOfTheAbyss.Shared.csproj" />
   <Project Path="SparksOfTheAbyss.Editor.csproj" />

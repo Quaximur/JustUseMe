@@ -1,6 +1,6 @@
 namespace SparksOfTheAbyss.Infrastructure.Contexts
 {
-    public abstract class SceneContext
+    public abstract class SceneContext : IEnterContext
     {
         public string ToSceneName { get; set; }
 

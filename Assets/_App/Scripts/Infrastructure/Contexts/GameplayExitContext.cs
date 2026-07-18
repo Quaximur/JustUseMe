@@ -1,6 +1,6 @@
 namespace SparksOfTheAbyss.Infrastructure.Contexts
 {
-    public class GameplayExitContext
+    public class GameplayExitContext : IExitContext
     {
         public SceneContext EnterContext { get; }
 
