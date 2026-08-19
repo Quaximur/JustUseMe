@@ -1,5 +1,9 @@
 using System.Collections.Generic;
+using R3;
+using R3.Triggers;
+using TMPro;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.UIElements;
 
 namespace JustUseMe.Shared.Localization
@@ -66,6 +70,20 @@ namespace JustUseMe.Shared.Localization
                 localizedChoices.Add(localizedString.GetLocalizedString());
             }
             dropdown.choices = localizedChoices;
+        }
+
+        public void Localize(TMP_Text tmpText, string table, string entry = null)
+        {
+            entry ??= tmpText.text;
+
+            if (string.IsNullOrEmpty(entry)) 
+                return;
+
+            if (!tmpText.gameObject.TryGetComponent<LocalizeStringEvent>(out var localizeEvent))
+                localizeEvent = tmpText.gameObject.AddComponent<LocalizeStringEvent>();
+
+            localizeEvent.OnUpdateString.AddListener(tmpText.SetText);
+            localizeEvent.StringReference = new LocalizedString(table, entry);
         }
     }
 }

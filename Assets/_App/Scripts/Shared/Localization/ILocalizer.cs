@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine.UIElements;
 
 namespace JustUseMe.Shared.Localization
@@ -9,5 +10,6 @@ namespace JustUseMe.Shared.Localization
         public void Localize(Button button, string table, string entry = null);
         public void Localize(Tab tab, string table, string entry = null);
         public void Localize(DropdownField dropdown, string table, string entry = null);
+        public void Localize(TMP_Text tmpText, string table, string entry = null);
     }
 }

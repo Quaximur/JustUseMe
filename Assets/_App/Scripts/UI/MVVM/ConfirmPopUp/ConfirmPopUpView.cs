@@ -1,5 +1,8 @@
+using DevKit.Locator;
 using DevKit.UI.MVVM.Bases;
 using DevKit.Utils;
+using JustUseMe.Shared;
+using JustUseMe.Shared.Localization;
 using R3;
 using TMPro;
 using UnityEngine;
@@ -21,11 +24,16 @@ namespace JustUseMe.UI.MVVM
         // [SerializeField] private SfxData _cancelClickSfx;
         // [SerializeField] private SfxData _closedSfx;
 
-        // private ILocalizer _localizer;
+        private ILocalizer _localizer;
 
         private CompositeDisposable _disposables;
 
         // [Inject] private readonly AudioPlayer _audioPlayer;
+
+        private void Awake()
+        {
+            _localizer = ServiceLocator.Current.Get<ILocalizer>();
+        }
 
         protected override void OnBind(ConfirmPopUpViewModel viewModel)
         {
@@ -70,8 +78,8 @@ namespace JustUseMe.UI.MVVM
         private void SetLocalizedText(TMP_Text textElement, string text)
         {
             textElement.text = text;
-            // if (!string.IsNullOrEmpty(textElement.text))
-            //     _localizer.Localize(textElement, Constants.SHARED_TABLE);
+            if (!string.IsNullOrEmpty(textElement.text))
+                _localizer.Localize(textElement, Constants.SHARED_TABLE);
         }
 
         private void OnConfirmClicked()

@@ -26,6 +26,18 @@ MonoBehaviour:
     m_Localized: CANCEL
     m_Metadata:
       m_Items: []
+  - m_Id: 12373235088883712
+    m_Localized: CONFIRM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12373347819192320
+    m_Localized: Exit without saving changes?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12373390492041216
+    m_Localized: All unapplied changes will be lost.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

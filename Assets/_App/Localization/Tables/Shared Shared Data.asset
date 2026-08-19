@@ -23,6 +23,18 @@ MonoBehaviour:
     m_Key: cancel_btn
     m_Metadata:
       m_Items: []
+  - m_Id: 12373235088883712
+    m_Key: confirm_btn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12373347819192320
+    m_Key: settings_save_confirm_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12373390492041216
+    m_Key: settings_save_confirm_message
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

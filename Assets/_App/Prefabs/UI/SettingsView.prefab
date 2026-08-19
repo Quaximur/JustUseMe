@@ -102,5 +102,5 @@ MonoBehaviour:
   _confirmSetup:
     TitleLid: settings_save_confirm_title
     MessageLid: settings_save_confirm_message
-    ConfirmTextLid: confirm
-    CancelTextLid: cancel
+    ConfirmTextLid: confirm_btn
+    CancelTextLid: cancel_btn
