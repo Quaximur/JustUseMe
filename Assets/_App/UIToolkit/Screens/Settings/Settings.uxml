@@ -19,8 +19,16 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="ActionsContainer" class="settings__actions" style="margin-top: 20px;">
-                <ui:Button name="ApplyButton" focusable="false" class="cafe__control-button cafe__control-button--cyan settings__button"/>
-                <ui:Button name="CancelChangesButton" focusable="false" class="cafe__control-button cafe__control-button--red settings__button" style="margin-left: 20px;"/>
+                <ui:Button name="ApplyButton" focusable="false" class="cafe__control-button cafe__control-button--cyan settings__button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:2996443a36c36ba42b1314b90733aeae" entry="Id(12368567151493120)"/>
+                    </Bindings>
+                </ui:Button>
+                <ui:Button name="CancelChangesButton" focusable="false" class="cafe__control-button cafe__control-button--red settings__button" style="margin-left: 20px;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:2996443a36c36ba42b1314b90733aeae" entry="Id(12368639369019392)"/>
+                    </Bindings>
+                </ui:Button>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

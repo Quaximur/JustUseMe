@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Shared
   m_TableCollectionNameGuidString: 2996443a36c36ba42b1314b90733aeae
-  m_Entries: []
+  m_Entries:
+  - m_Id: 12368567151493120
+    m_Key: apply_btn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12368639369019392
+    m_Key: cancel_btn
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
