@@ -66,6 +66,7 @@ MonoBehaviour:
     _tableCollectionSO: {fileID: 11400000, guid: 3d8c8905ffe772145b831e0810c55d51, type: 2}
   _settingsViewPrefab: {fileID: 7705798607652001187, guid: 6cda63e3ff9c9b44eb7980fee15b8ffb, type: 3}
   _confirmPopUpPrefab: {fileID: 2203224453725933363, guid: 2c9007b79f18c2d41bca083d0565f1fd, type: 3}
+  _audioPlayerPrefab: {fileID: 5377799553824054995, guid: 8f9073dcbbce2d34a8c86a1975e51a7f, type: 3}
 --- !u!114 &-7163465700422227999
 MonoBehaviour:
   m_ObjectHideFlags: 0

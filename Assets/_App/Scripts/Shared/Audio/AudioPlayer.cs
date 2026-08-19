@@ -1,13 +1,12 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using DevKit.Utils;
 using R3;
 using UnityEngine.Pool;
+using JustUseMe.Shared.Utils;
 
 namespace JustUseMe.Shared
 {
-    public class AudioPlayer : MonoBehaviour
+    public class AudioPlayer : MonoBehaviour, IAudioPlayer
     {
         public readonly ReactiveProperty<float> VolumeMultiplier = new(1.0f);
 
@@ -20,18 +19,13 @@ namespace JustUseMe.Shared
 
         private IObjectPool<SfxSource> _sfxSourcePool;
         private readonly ReactiveProperty<float> _audioVolumeFadeScale = new(1.0f);
-        private readonly MonoBehaviourHook _monoHook;
-        private bool _isMusicFading = false;
 
         private readonly List<SfxSource> _activeSfxSources = new();
-        private Observable<float> _musicVolumeSetting;
-        private Observable<float> _sfxVolumeSetting;
+        private readonly ObservableProd _musicProduct = new();
+        private readonly ObservableProd _sfxProduct = new();
 
-        public void Init(Observable<float> musicVolume, Observable<float> sfxVolume)
+        public void Init()
         {
-            _musicVolumeSetting = musicVolume;
-            _sfxVolumeSetting = sfxVolume;
-
             _sfxSourcePool = new ObjectPool<SfxSource>(
                 CreateSfxSource,
                 OnTakeFromPool,
@@ -41,11 +35,27 @@ namespace JustUseMe.Shared
                 _defaultCapacity,
                 _maxPoolSize);
 
-            _musicVolumeSetting.CombineLatest(_audioVolumeFadeScale, VolumeMultiplier, (a, b, c) => a * b * c)
-                .Subscribe(x => _singletonMusicSource.volume = x);
+            _musicProduct.Add(VolumeMultiplier);
+            _musicProduct.Add(_audioVolumeFadeScale);
 
-            _sfxVolumeSetting.CombineLatest(_audioVolumeFadeScale, VolumeMultiplier, (a, b, c) => a * b * c)
-                .Subscribe(x => _singletonSfxSource.volume = x);
+            _sfxProduct.Add(VolumeMultiplier);
+            _sfxProduct.Add(_audioVolumeFadeScale);
+
+            _musicProduct.Subscribe(x => _singletonMusicSource.volume = x)
+                .AddTo(this);
+
+            _sfxProduct.Subscribe(x => _singletonSfxSource.volume = x)
+                .AddTo(this);
+        }
+
+        public void AddMusicScaler(Observable<float> musicScaler)
+        {
+            _musicProduct.Add(musicScaler);
+        }
+
+        public void AddSfxScaler(Observable<float> sfxScaler)
+        {
+            _sfxProduct.Add(sfxScaler);
         }
 
         public SfxSource Get()
@@ -73,38 +83,14 @@ namespace JustUseMe.Shared
             _singletonMusicSource.Play();
         }
 
+        public void StopSingletonMusic()
+        {
+            _singletonMusicSource.Stop();
+        }
+
         public SfxBuilder GetSfxBuilder()
         {
             return new SfxBuilder(this);
-        }
-
-        public void TurnOnSoundFade(float duration)
-        {
-            if (_singletonMusicSource.isPlaying)
-            {
-                if (_isMusicFading)
-                    _monoHook.StopCoroutine(FadeInRoutine());
-
-                _monoHook.StartCoroutine(FadeInRoutine());
-            }
-
-            IEnumerator FadeInRoutine()
-            {
-                _isMusicFading = true;
-                var currentDuration = 0.0f;
-
-                while (currentDuration < duration)
-                {
-                    _audioVolumeFadeScale.Value += Mathf.Lerp(0, 1, currentDuration / duration);
-
-                    yield return null;
-
-                    currentDuration += Time.deltaTime;
-                }
-
-                _audioVolumeFadeScale.Value = 1;
-                _isMusicFading = false;
-            }
         }
 
         /// <summary>
@@ -132,8 +118,7 @@ namespace JustUseMe.Shared
 
             // TODO: bind pause
 
-            _sfxVolumeSetting.CombineLatest(_audioVolumeFadeScale, VolumeMultiplier, (a, b, c) => a * b * c)
-                .Subscribe(sfxSource.SetVolumeMultiplier)
+            _sfxProduct.Subscribe(sfxSource.SetVolumeMultiplier)
                 .AddTo(sfxSource.gameObject);
 
             sfxSource.gameObject.SetActive(false);
@@ -155,7 +140,8 @@ namespace JustUseMe.Shared
 
         private void OnDestroyPoolObject(SfxSource soundEmitter)
         {
-            Destroy(soundEmitter.gameObject);
+            if (soundEmitter != null && soundEmitter.gameObject != null)
+                Destroy(soundEmitter.gameObject);
         }
     }
 }

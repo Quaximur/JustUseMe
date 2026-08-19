@@ -15,6 +15,7 @@ using UnityEngine;
 
 using Lifetime = Reflex.Enums.Lifetime;
 using Resolution = Reflex.Enums.Resolution;
+using JustUseMe.Shared;
 
 namespace JustUseMe.Infrastructure.Installers
 {
@@ -28,6 +29,9 @@ namespace JustUseMe.Infrastructure.Installers
         [SerializeField] private SerializableLocalizationLoader _settingsLocalizationLoader;
         [SerializeField] private SettingsView _settingsViewPrefab;
         [SerializeField] private ConfirmPopUpView _confirmPopUpPrefab;
+
+        [Space(4), Header("Audio")]
+        [SerializeField] private AudioPlayer _audioPlayerPrefab;
 
         private RootUIBinder _rootUIBinder;
 
@@ -43,6 +47,7 @@ namespace JustUseMe.Infrastructure.Installers
 
             RegisterSaves(builder);
             RegisterUI(builder);
+            RegisterAudio(builder);
 
             builder.RegisterValue(new RootLocalizationLoaderKey(_rootLocalizationLoader));
             builder.RegisterValue(new SettingsLocalizationLoaderKey(_settingsLocalizationLoader));
@@ -99,31 +104,38 @@ namespace JustUseMe.Infrastructure.Installers
 
         private void RegisterAudio(ContainerBuilder builder)
         {
-            //     builder.Register<AudioPlayer>(resolver => 
-            //     {
-            //         var settingsModel = resolver.Resolve<SettingsModel>();
+            builder.RegisterFactory<IAudioPlayer>(resolver =>
+            {
+                var audioPlayer = Instantiate(_audioPlayerPrefab);
+                DontDestroyOnLoad(audioPlayer.gameObject);
 
-            //         _audioPlayer.Init(musicVolume: settingsModel.MusicVolume.Select(x => x / 100.0f), 
-            //             sfxVolume: settingsModel.SfxVolume.Select(x => x / 100.0f));
+                audioPlayer.Init();
 
-            //         ServiceLocator.Current.Register<AudioPlayer>(_audioPlayer);
+                var settingsModel = resolver.Resolve<SettingsModel>();
+                audioPlayer.AddMusicScaler(settingsModel.MusicVolume.Select(x => x / 100.0f));
+                audioPlayer.AddSfxScaler(settingsModel.SfxVolume.Select(x => x / 100.0f));
 
-            //         var loadingScreen = resolver.Resolve<LoadingScreen>();
-            //         loadingScreen.OverlayFillProgress.Subscribe(x => _audioPlayer.VolumeMultiplier.Value = 1.0f - x);
+                ServiceLocator.Current.Register<IAudioPlayer>(audioPlayer);
 
-            //         var sceneLoader = resolver.Resolve<SceneLoader>();
-            //         sceneLoader.OnLoadingStarted.Subscribe(_ => 
-            //         {
-            //             _audioPlayer.StopAllSfx();
-            //             _audioPlayer.PauseMusic();
-            //         });
-            //         sceneLoader.OnLoadingFinished.Subscribe(_ =>
-            //         {
-            //             _audioPlayer.UnPauseMusic();
-            //         });
+                var loadingScreen = resolver.Resolve<LoadingScreen>();
+                var loadingFadeAudioScaler = new ReactiveProperty<float>();
 
-            //         return _audioPlayer;
-            //     }, Lifetime.Singleton);
+                loadingScreen.OverlayFillProgress.Subscribe(x => loadingFadeAudioScaler.Value = 1.0f - x);
+                audioPlayer.AddMusicScaler(loadingFadeAudioScaler);
+                audioPlayer.AddSfxScaler(loadingFadeAudioScaler);
+
+                loadingScreen.OnShowFinished.Subscribe(_ =>
+                {
+                    audioPlayer.StopAllSfx();
+                    audioPlayer.PauseMusic();
+                });
+                loadingScreen.OnHideStarted.Subscribe(_ =>
+                {
+                    audioPlayer.UnPauseMusic();
+                });
+
+                return audioPlayer;
+            }, Lifetime.Singleton, Resolution.Eager); // NonLazy for access from ServiceLocator
         }
 
         private void InitSettings(Container container)

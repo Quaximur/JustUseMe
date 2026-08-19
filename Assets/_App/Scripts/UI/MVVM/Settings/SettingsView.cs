@@ -9,6 +9,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Reflex.Attributes;
+using DevKit.Locator;
 
 namespace JustUseMe.UI.MVVM
 {
@@ -40,7 +41,7 @@ namespace JustUseMe.UI.MVVM
         private readonly Dictionary<SettingsSectionViewModel, TabEntry> _sectionsMap = new();
         private CompositeDisposable _disposables;
         
-        [Inject] private readonly AudioPlayer _audioPlayer;
+        private IAudioPlayer _audioPlayer;
 
         protected override void OnInit()
         {
@@ -56,6 +57,8 @@ namespace JustUseMe.UI.MVVM
             _controlInfoContainer.Clear();
 
             _controlFactory.Init(_sectionsContainer, _tabButtonsContainer, _controlInfoContainer);
+
+            _audioPlayer = ServiceLocator.Current.Get<IAudioPlayer>();
         }
 
         protected override void OnBind(SettingsViewModel viewModel)

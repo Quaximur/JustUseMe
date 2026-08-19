@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using JustUseMe.Shared;
 using Reflex.Attributes;
+using DevKit.Locator;
 
 namespace JustUseMe.UI.MVVM
 {
@@ -21,7 +22,7 @@ namespace JustUseMe.UI.MVVM
         private Button _settingsButton;
         // private Button _creditsButton;
         
-        [Inject] private readonly AudioPlayer _audioPlayer;
+        private IAudioPlayer _audioPlayer;
 
         protected override void OnInit()
         {
@@ -29,6 +30,8 @@ namespace JustUseMe.UI.MVVM
             _settingsButton = Root.Q<Button>(name: _settingsButtonName);
             // _creditsButton =  Root.Q<Button>(name: _creditsButtonName);
             _exitButton = Root.Q<Button>(name: _exitButtonName);
+
+            _audioPlayer = ServiceLocator.Current.Get<IAudioPlayer>();
         }
 
         protected override void OnBind(MainMenuViewModel viewModel)
