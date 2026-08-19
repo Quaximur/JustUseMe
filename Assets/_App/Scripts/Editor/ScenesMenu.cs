@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 using UnityEditor.Toolbars;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Editor
+namespace JustUseMe.Editor
 {
     internal static class ScenesMenu
     {

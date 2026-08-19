@@ -1,7 +1,7 @@
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data.Settings;
 using R3;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class VideoSettingsViewModel : SettingsSectionViewModel
     {

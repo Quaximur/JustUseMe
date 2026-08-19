@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
-namespace SparksOfTheAbyss.Shared.Localization
+namespace JustUseMe.Shared.Localization
 {
     public class UnityLocalizer : ILocalizer
     {

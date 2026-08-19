@@ -1,6 +1,6 @@
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data.Settings;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class InputSectionViewModel : SettingsSectionViewModel
     {

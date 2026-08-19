@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Data.Settings
+namespace JustUseMe.Data.Settings
 {
     [CreateAssetMenu(fileName = "SliderIntSettingDataSO",
         menuName = "Scriptable Objects/Settings/SliderIntSettingDataSO")]

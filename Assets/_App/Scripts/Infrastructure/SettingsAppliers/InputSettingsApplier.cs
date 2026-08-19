@@ -3,7 +3,7 @@
 // // using Unity.Cinemachine;
 // using UnityEngine;
 
-// namespace SparksOfTheAbyss.Infrastructure.SettingsAppliers
+// namespace JustUseMe.Infrastructure.SettingsAppliers
 // {
 //     public class InputSettingsApplier : SettingsApplier
 //     {

@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using R3;
 using Cysharp.Threading.Tasks;
-using SparksOfTheAbyss.Infrastructure.Contexts;
-using SparksOfTheAbyss.Infrastructure.Bootstraps;
-using SparksOfTheAbyss.Shared;
+using JustUseMe.Infrastructure.Contexts;
+using JustUseMe.Infrastructure.Bootstraps;
+using JustUseMe.Shared;
 
-namespace SparksOfTheAbyss.Infrastructure
+namespace JustUseMe.Infrastructure
 {
     public class SceneLoader
     {

@@ -5,7 +5,7 @@ using DevKit.Utils;
 using R3;
 using UnityEngine.Pool;
 
-namespace SparksOfTheAbyss.Shared
+namespace JustUseMe.Shared
 {
     public class AudioPlayer : MonoBehaviour
     {

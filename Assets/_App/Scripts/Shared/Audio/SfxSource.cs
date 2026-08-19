@@ -2,7 +2,7 @@ using System.Collections;
 using R3;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Shared
+namespace JustUseMe.Shared
 {
     [RequireComponent(typeof(AudioSource))]
     public class SfxSource : MonoBehaviour

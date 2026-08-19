@@ -1,9 +1,9 @@
 #if UNITY_EDITOR
-using SparksOfTheAbyss.Editor.UIInternals;
+using JustUseMe.Editor.UIInternals;
 using UnityEditor;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Editor.Internals
+namespace JustUseMe.Editor.Internals
 {
     internal class UIBuilderToolbarInit
     {

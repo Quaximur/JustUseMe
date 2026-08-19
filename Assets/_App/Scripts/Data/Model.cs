@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Data
+namespace JustUseMe.Data
 {
     public abstract class Model<T>
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DevKit.Utils;
 
-namespace SparksOfTheAbyss.Shared.Utils
+namespace JustUseMe.Shared.Utils
 {
     public class WaitQueue
     {

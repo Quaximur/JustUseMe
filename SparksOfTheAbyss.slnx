@@ -1,10 +1,10 @@
 ﻿<Solution>
-  <Project Path="SparksOfTheAbyss.UI.csproj" />
-  <Project Path="SparksOfTheAbyss.Infrastructure.csproj" />
+  <Project Path="JustUseMe.UI.csproj" />
+  <Project Path="JustUseMe.Infrastructure.csproj" />
   <Project Path="UnityEngine.UI.csproj" />
-  <Project Path="SparksOfTheAbyss.Data.csproj" />
-  <Project Path="SparksOfTheAbyss.Shared.csproj" />
-  <Project Path="SparksOfTheAbyss.Editor.csproj" />
-  <Project Path="SparksOfTheAbyss.Gameplay.csproj" />
-  <Project Path="SparksOfTheAbyss.Editor.Internals.csproj" />
+  <Project Path="JustUseMe.Data.csproj" />
+  <Project Path="JustUseMe.Shared.csproj" />
+  <Project Path="JustUseMe.Editor.csproj" />
+  <Project Path="JustUseMe.Gameplay.csproj" />
+  <Project Path="JustUseMe.Editor.Internals.csproj" />
 </Solution>

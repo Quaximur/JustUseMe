@@ -1,8 +1,8 @@
 using System;
-using SparksOfTheAbyss.Shared.Refs;
+using JustUseMe.Shared.Refs;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Shared.Localization
+namespace JustUseMe.Shared.Localization
 {
     [Serializable]
     public abstract class SerializedLocalizationRef : ISerializedTypedRef<SerializableLocalizationLoader>

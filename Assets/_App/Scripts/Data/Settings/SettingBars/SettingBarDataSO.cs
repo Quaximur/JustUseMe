@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Data.Settings
+namespace JustUseMe.Data.Settings
 {
     public abstract class SettingBarDataSO : ScriptableObject, ISettingBarData
     {

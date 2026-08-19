@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using Reflex.Core;
 
-namespace SparksOfTheAbyss.Infrastructure.Installers
+namespace JustUseMe.Infrastructure.Installers
 {
     public interface IModuleInstaller
     {

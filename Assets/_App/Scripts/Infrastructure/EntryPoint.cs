@@ -2,11 +2,11 @@ using Cysharp.Threading.Tasks;
 using DevKit.Utils;
 using Reflex.Core;
 using Reflex.Injectors;
-using SparksOfTheAbyss.Infrastructure.TypedKeys;
+using JustUseMe.Infrastructure.TypedKeys;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
-namespace SparksOfTheAbyss.Infrastructure
+namespace JustUseMe.Infrastructure
 {
     public class EntryPoint
     {

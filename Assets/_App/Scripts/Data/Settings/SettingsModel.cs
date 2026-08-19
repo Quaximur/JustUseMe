@@ -1,7 +1,7 @@
 using R3;
-using SparksOfTheAbyss.Data;
+using JustUseMe.Data;
 
-namespace SparksOfTheAbyss.Data.Settings
+namespace JustUseMe.Data.Settings
 {
     public class SettingsModel : Model<SettingsState>
     {

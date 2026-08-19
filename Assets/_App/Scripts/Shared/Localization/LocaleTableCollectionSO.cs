@@ -4,7 +4,7 @@ using DevKit.Utils;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
 
-namespace SparksOfTheAbyss.Shared.Localization
+namespace JustUseMe.Shared.Localization
 {
     [CreateAssetMenu(fileName = nameof(LocaleTableCollectionSO),
         menuName = "Scriptable Objects/" + nameof(LocaleTableCollectionSO))]

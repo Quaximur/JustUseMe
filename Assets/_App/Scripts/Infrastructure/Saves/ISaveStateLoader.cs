@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Infrastructure.Saves
+namespace JustUseMe.Infrastructure.Saves
 {
     public interface ISaveStateLoader
     {

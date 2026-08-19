@@ -1,6 +1,6 @@
 using System;
 
-namespace SparksOfTheAbyss.Shared.Refs
+namespace JustUseMe.Shared.Refs
 {
     /// <summary>
     /// Used for dynamic registration only. 

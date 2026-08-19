@@ -1,3 +1,3 @@
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("SparksOfTheAbyss.Editor.Internals")]
+[assembly: InternalsVisibleTo("JustUseMe.Editor.Internals")]

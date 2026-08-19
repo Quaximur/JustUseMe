@@ -1,7 +1,7 @@
-using SparksOfTheAbyss.Shared;
-using SparksOfTheAbyss.Shared.Localization;
+using JustUseMe.Shared;
+using JustUseMe.Shared.Localization;
 
-namespace SparksOfTheAbyss.Infrastructure.TypedKeys
+namespace JustUseMe.Infrastructure.TypedKeys
 {
     public class RootLocalizationLoaderKey : TypedKey<ILocalizationLoader>
     {

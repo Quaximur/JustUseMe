@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Shared.Localization
+namespace JustUseMe.Shared.Localization
 {
     public abstract class LocalizationTypedKey : TypedKey<ILocalizationLoader>
     {

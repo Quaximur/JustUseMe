@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Data.Settings
+namespace JustUseMe.Data.Settings
 {
     public interface ISliderSettingData<T> : ISettingBarData
     {

@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace SparksOfTheAbyss.UI.Custom
+namespace JustUseMe.UI.Custom
 {
     public class TabEntry
     {

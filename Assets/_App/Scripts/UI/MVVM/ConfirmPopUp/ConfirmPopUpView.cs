@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class ConfirmPopUpView : AttachableCanvasWindow<ConfirmPopUpViewModel>
     {

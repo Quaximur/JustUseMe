@@ -1,12 +1,12 @@
 using Cysharp.Threading.Tasks;
 using R3;
 using Reflex.Core;
-using SparksOfTheAbyss.Infrastructure.Contexts;
-using SparksOfTheAbyss.Infrastructure.TypedKeys;
-using SparksOfTheAbyss.TypedKeys;
+using JustUseMe.Infrastructure.Contexts;
+using JustUseMe.Infrastructure.TypedKeys;
+using JustUseMe.TypedKeys;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Infrastructure.Bootstraps
+namespace JustUseMe.Infrastructure.Bootstraps
 {
     public class MainMenuBoot : Bootstrap<MainMenuEnterContext, MainMenuExitContext>
     {

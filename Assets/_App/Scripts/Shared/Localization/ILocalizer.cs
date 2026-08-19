@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace SparksOfTheAbyss.Shared.Localization
+namespace JustUseMe.Shared.Localization
 {
     public interface ILocalizer
     {

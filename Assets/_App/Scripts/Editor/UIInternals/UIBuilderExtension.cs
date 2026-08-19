@@ -2,7 +2,7 @@
 using Unity.UI.Builder;
 using UnityEditor;
 
-namespace SparksOfTheAbyss.Editor.UIInternals
+namespace JustUseMe.Editor.UIInternals
 {
     internal class UIBuilderExtension
     {

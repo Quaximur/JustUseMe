@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Shared
+namespace JustUseMe.Shared
 {
     public abstract class TypedKey<T>
     {

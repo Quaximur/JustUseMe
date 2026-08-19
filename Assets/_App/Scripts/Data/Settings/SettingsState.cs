@@ -2,7 +2,7 @@ using System;
 using DevKit.Saves;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Data.Settings
+namespace JustUseMe.Data.Settings
 {
     [Serializable]
     public class SettingsState : IVersioned

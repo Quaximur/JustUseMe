@@ -4,9 +4,9 @@ using System.Linq;
 using DevKit.UI.MVVM;
 using R3;
 using DevKit.Utils;
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data.Settings;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public abstract class SettingsSectionViewModel : IViewModel, IDisposable
     {

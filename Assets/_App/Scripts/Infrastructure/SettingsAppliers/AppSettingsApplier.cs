@@ -1,11 +1,11 @@
 using System;
 using DevKit.Utils;
 using R3;
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data.Settings;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
-namespace SparksOfTheAbyss.Infrastructure.SettingsAppliers
+namespace JustUseMe.Infrastructure.SettingsAppliers
 {
     public class AppSettingsApplier : SettingsApplier
     {

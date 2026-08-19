@@ -4,19 +4,19 @@ using DevKit.Saves;
 using DevKit.UI.MVVM;
 using R3;
 using Reflex.Core;
-using SparksOfTheAbyss.Data.Settings;
-using SparksOfTheAbyss.Infrastructure.Saves;
-using SparksOfTheAbyss.Infrastructure.SettingsAppliers;
-using SparksOfTheAbyss.Infrastructure.TypedKeys;
-using SparksOfTheAbyss.SaveState;
-using SparksOfTheAbyss.Shared.Localization;
-using SparksOfTheAbyss.UI.MVVM;
+using JustUseMe.Data.Settings;
+using JustUseMe.Infrastructure.Saves;
+using JustUseMe.Infrastructure.SettingsAppliers;
+using JustUseMe.Infrastructure.TypedKeys;
+using JustUseMe.SaveState;
+using JustUseMe.Shared.Localization;
+using JustUseMe.UI.MVVM;
 using UnityEngine;
 
 using Lifetime = Reflex.Enums.Lifetime;
 using Resolution = Reflex.Enums.Resolution;
 
-namespace SparksOfTheAbyss.Infrastructure.Installers
+namespace JustUseMe.Infrastructure.Installers
 {
     public class RootInstaller : MonoBehaviour, IInstaller
     {

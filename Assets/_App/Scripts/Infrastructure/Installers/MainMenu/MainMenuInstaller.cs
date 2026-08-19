@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
 using DevKit.UI.MVVM;
 using Reflex.Core;
-using SparksOfTheAbyss.UI.MVVM;
+using JustUseMe.UI.MVVM;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Infrastructure.Installers
+namespace JustUseMe.Infrastructure.Installers
 {
     public class MainMenuInstaller : ModuleInstaller
     {

@@ -1,6 +1,6 @@
 using R3;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public interface IControlViewModel
     {

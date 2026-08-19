@@ -1,14 +1,14 @@
 using System;
 using DevKit.UI.MVVM;
 using DevKit.UI.MVVM.Bases;
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data.Settings;
 using R3;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using SparksOfTheAbyss.Shared.Localization;
-using SparksOfTheAbyss.Shared;
+using JustUseMe.Shared.Localization;
+using JustUseMe.Shared;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class SettingsLocalizationLoaderKey : TypedKey<ILocalizationLoader>
     {

@@ -5,12 +5,12 @@ using Reflex.Extensions;
 using System;
 using R3;
 using DevKit.Utils;
-using SparksOfTheAbyss.Infrastructure.TypedKeys;
-using SparksOfTheAbyss.Shared.Utils;
-using SparksOfTheAbyss.Infrastructure.Contexts;
+using JustUseMe.Infrastructure.TypedKeys;
+using JustUseMe.Shared.Utils;
+using JustUseMe.Infrastructure.Contexts;
 using Cysharp.Threading.Tasks;
 
-namespace SparksOfTheAbyss.Infrastructure.Bootstraps
+namespace JustUseMe.Infrastructure.Bootstraps
 {
     public abstract class Bootstrap<TEnterContext, TExitContext> : MonoBehaviour, IDisposable
         where TEnterContext : IEnterContext

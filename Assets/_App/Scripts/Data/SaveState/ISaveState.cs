@@ -1,6 +1,6 @@
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data.Settings;
 
-namespace SparksOfTheAbyss.Data.SaveState
+namespace JustUseMe.Data.SaveState
 {
     public interface ISaveState
     {

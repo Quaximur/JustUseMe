@@ -2,7 +2,7 @@ using System;
 using DevKit.Utils;
 using R3;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class ControlViewModel<T> : ControlViewModel<T, T>
     {

@@ -1,7 +1,7 @@
 using R3;
-using SparksOfTheAbyss.Shared;
+using JustUseMe.Shared;
 
-namespace SparksOfTheAbyss.TypedKeys
+namespace JustUseMe.TypedKeys
 {
     public class ExitGameplaySubjectKey : TypedKey<Subject<Unit>>
     {

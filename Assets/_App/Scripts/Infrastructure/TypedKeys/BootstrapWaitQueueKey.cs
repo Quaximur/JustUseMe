@@ -1,7 +1,7 @@
-using SparksOfTheAbyss.Shared;
-using SparksOfTheAbyss.Shared.Utils;
+using JustUseMe.Shared;
+using JustUseMe.Shared.Utils;
 
-namespace SparksOfTheAbyss.Infrastructure.TypedKeys
+namespace JustUseMe.Infrastructure.TypedKeys
 {
     public class BootstrapWaitQueueKey : TypedKey<WaitQueue>
     {

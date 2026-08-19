@@ -1,10 +1,10 @@
 using DevKit.UI.MVVM.Bases;
 using UnityEngine;
 using UnityEngine.UIElements;
-using SparksOfTheAbyss.Shared;
+using JustUseMe.Shared;
 using Reflex.Attributes;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class MainMenuView : AttachableToolkitScreen<MainMenuViewModel>
     {

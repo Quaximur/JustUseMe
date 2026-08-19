@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Data.Settings
+namespace JustUseMe.Data.Settings
 {
     [CreateAssetMenu(fileName = "EnumSettingsDataSO", 
         menuName = "Scriptable Objects/Settings/EnumSettingsDataSO")]

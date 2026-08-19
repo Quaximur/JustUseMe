@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using DevKit.UI.MVVM.Bases;
 using DevKit.Utils;
-using SparksOfTheAbyss.Data;
-using SparksOfTheAbyss.Data.Settings;
-using SparksOfTheAbyss.Shared;
-using SparksOfTheAbyss.UI.Custom;
+using JustUseMe.Data;
+using JustUseMe.Data.Settings;
+using JustUseMe.Shared;
+using JustUseMe.UI.Custom;
 using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Reflex.Attributes;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class SettingsView : AttachableToolkitWindow<SettingsViewModel>
     {

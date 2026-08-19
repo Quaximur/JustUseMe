@@ -1,10 +1,10 @@
 using DevKit.Saves;
 using DevKit.Utils;
-using SparksOfTheAbyss.Data.SaveState;
-using SparksOfTheAbyss.Data.Settings;
-using SparksOfTheAbyss.SaveState;
+using JustUseMe.Data.SaveState;
+using JustUseMe.Data.Settings;
+using JustUseMe.SaveState;
 
-namespace SparksOfTheAbyss.Infrastructure.Saves
+namespace JustUseMe.Infrastructure.Saves
 {
     public class SaveStateService : ISaveStateLoader, ISaveStateProvider
     {

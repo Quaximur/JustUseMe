@@ -6,7 +6,7 @@ using DevKit.Utils;
 using Lifetime = Reflex.Enums.Lifetime;
 using Resolution = Reflex.Enums.Resolution;
 
-namespace SparksOfTheAbyss.Infrastructure.Installers
+namespace JustUseMe.Infrastructure.Installers
 {
     public class RootUICleanupInstaller : ModuleInstaller
     {

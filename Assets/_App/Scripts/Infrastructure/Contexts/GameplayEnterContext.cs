@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Infrastructure.Contexts
+namespace JustUseMe.Infrastructure.Contexts
 {
     public class GameplayEnterContext : SceneContext
     {

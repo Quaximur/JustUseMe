@@ -3,7 +3,7 @@ using DevKit.Utils;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
 
-namespace SparksOfTheAbyss.Shared.Localization
+namespace JustUseMe.Shared.Localization
 {
     [Serializable]
     public class LocaleTableCollection : ILocaleTableCollection

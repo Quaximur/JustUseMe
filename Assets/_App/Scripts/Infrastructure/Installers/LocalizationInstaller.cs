@@ -1,14 +1,14 @@
 using Cysharp.Threading.Tasks;
 using R3;
 using Reflex.Core;
-using SparksOfTheAbyss.Shared.Localization;
-using SparksOfTheAbyss.Shared.SerializedRefs;
+using JustUseMe.Shared.Localization;
+using JustUseMe.Shared.SerializedRefs;
 using UnityEngine;
 
 using Lifetime = Reflex.Enums.Lifetime;
 using Resolution = Reflex.Enums.Resolution;
 
-namespace SparksOfTheAbyss.Infrastructure.Installers
+namespace JustUseMe.Infrastructure.Installers
 {
     /// <summary>
     /// For dynamic localization registrations only.

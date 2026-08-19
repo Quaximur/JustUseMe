@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SparksOfTheAbyss.Shared.SerializedRefs;
+using JustUseMe.Shared.SerializedRefs;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace SparksOfTheAbyss.Editor
+namespace JustUseMe.Editor
 {
     [CustomPropertyDrawer(typeof(RealizationSelectorAttribute), true)]
     public class RealizationSelectorDrawer : PropertyDrawer

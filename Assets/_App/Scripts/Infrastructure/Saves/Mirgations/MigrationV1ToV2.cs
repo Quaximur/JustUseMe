@@ -1,8 +1,8 @@
 // using DevKit.Newtonsoft;
-// using SparksOfTheAbyss.Data.Settings;
+// using JustUseMe.Data.Settings;
 // using Newtonsoft.Json.Linq;
 
-// namespace SparksOfTheAbyss.Infrastructure.Saves
+// namespace JustUseMe.Infrastructure.Saves
 // {
 //     // From: {"_version":1,"_settingsState":{"VSync":false,"FPS":-1,"Sensitivity":51,"_version":1}}
 //     // To: {"Version":2,"SettingsState":{"MusicVolume":80,"SfxVolume":80,"Sensitivity":51,"VSync":false,"FPS":-1,"Brightness":50,"IsPostProcessingEnabled":true,"IsBloomEnabled":true,"IsFilmGrainEnabled":true,"IsChromaticAberrationEnabled":true,"IsAntiAliasingEnabled":true,"ScreenWidth":2560,"ScreenHeight":1440,"Fullscreen":true,"Language":"en","Version":2},"CampaignState":{"CampaignDataVersion":1,"Locations":[{"Id":"location_1","IsCompleted":false,"OpenedMissions":[{"Id":"mission_1_1","IsCompleted":false,"Stars":0}],"MaxCompletedMissionId":null}],"LastLaunchedLocationId":"","LastLaunchedMissionId":"","Version":1}}

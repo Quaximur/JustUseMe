@@ -1,4 +1,4 @@
-namespace SparksOfTheAbyss.Infrastructure
+namespace JustUseMe.Infrastructure
 {
     public static class Scenes
     {

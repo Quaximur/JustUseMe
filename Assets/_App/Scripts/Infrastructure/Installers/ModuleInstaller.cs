@@ -3,10 +3,10 @@ using Cysharp.Threading.Tasks;
 using DevKit.Utils;
 using R3;
 using Reflex.Core;
-using SparksOfTheAbyss.Infrastructure.TypedKeys;
+using JustUseMe.Infrastructure.TypedKeys;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Infrastructure.Installers
+namespace JustUseMe.Infrastructure.Installers
 {
     public abstract class ModuleInstaller : MonoBehaviour, IInstaller, IModuleInstaller
     {

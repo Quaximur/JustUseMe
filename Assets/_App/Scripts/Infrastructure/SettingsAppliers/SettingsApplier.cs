@@ -1,7 +1,7 @@
 using System;
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data.Settings;
 
-namespace SparksOfTheAbyss.Infrastructure.SettingsAppliers
+namespace JustUseMe.Infrastructure.SettingsAppliers
 {
     public abstract class SettingsApplier
     {

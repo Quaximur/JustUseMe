@@ -1,9 +1,9 @@
 using DevKit.UI.MVVM.Bases;
 using R3;
-using SparksOfTheAbyss.Data;
+using JustUseMe.Data;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class ConfirmPopUpViewModel : ScreenViewModel
     {

@@ -4,14 +4,14 @@ using System.Linq;
 using DevKit.UI.MVVM;
 using DevKit.Utils;
 using DevKit.UI.MVVM.Bases;
-using SparksOfTheAbyss.Data;
-using SparksOfTheAbyss.Data.Settings;
+using JustUseMe.Data;
+using JustUseMe.Data.Settings;
 using R3;
-using SparksOfTheAbyss.SaveState;
-using SparksOfTheAbyss.UI.MVVM;
-using SparksOfTheAbyss.Shared;
+using JustUseMe.SaveState;
+using JustUseMe.UI.MVVM;
+using JustUseMe.Shared;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     public class SaveSettingsSignalKey : TypedKey<Subject<Unit>>
     {

@@ -3,15 +3,15 @@ using System.Linq;
 using DevKit.Locator;
 using DevKit.UITK;
 using DevKit.Utils;
-using SparksOfTheAbyss.Data.Settings;
-using SparksOfTheAbyss.Shared;
-using SparksOfTheAbyss.UI.Custom;
+using JustUseMe.Data.Settings;
+using JustUseMe.Shared;
+using JustUseMe.UI.Custom;
 using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
-using SparksOfTheAbyss.Shared.Localization;
+using JustUseMe.Shared.Localization;
 
-namespace SparksOfTheAbyss.UI.MVVM
+namespace JustUseMe.UI.MVVM
 {
     [Serializable]
     public class SettingControlFactory : IDisposable

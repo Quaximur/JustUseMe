@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace SparksOfTheAbyss.Shared.SerializedRefs
+namespace JustUseMe.Shared.SerializedRefs
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class RealizationSelectorAttribute : PropertyAttribute
