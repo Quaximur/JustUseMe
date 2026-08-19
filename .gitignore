@@ -108,3 +108,6 @@ InitTestScene*.unity*
 
 /[Aa]ssets/SaveData
 /[Aa]ssets/SaveData.meta
+
+.vscode
+.idea
