@@ -1,23 +1,22 @@
 using DevKit.UI.MVVM;
 using DevKit.UI.MVVM.Bases;
+using DevKit.Utils;
 using UnityEngine;
 
 namespace SparksOfTheAbyss.UI.MVVM
 {
     public class MainMenuViewModel : ScreenViewModel
     {
-        private readonly IViewBinder<CampaignViewModel> _campaignBinder;
         private readonly IViewBinder<SettingsViewModel> _settingsBinder;
-        public MainMenuViewModel(IViewBinder<CampaignViewModel> campaignBinder,
-            IViewBinder<SettingsViewModel> settingsBinder)
+        
+        public MainMenuViewModel(IViewBinder<SettingsViewModel> settingsBinder)
         {
-            _campaignBinder = campaignBinder;
             _settingsBinder = settingsBinder;
         }
 
         public void StartGameplay()
         {
-            _campaignBinder.Open();
+            FLogger.Log<MainMenuViewModel>("Start Gameplay");
         }
 
         public void Quit()

@@ -1,9 +1,5 @@
-using System.Collections.Generic;
-// using DevKit.Newtonsoft;
 using DevKit.Saves;
 using DevKit.Utils;
-// using SparksOfTheAbyss.Data.Settings;
-using SparksOfTheAbyss.Data.Campaign;
 using SparksOfTheAbyss.Data.SaveState;
 using SparksOfTheAbyss.Data.Settings;
 using SparksOfTheAbyss.SaveState;
@@ -35,25 +31,13 @@ namespace SparksOfTheAbyss.Infrastructure.Saves
 
                 _saveState = _saveSystem.Load<SaveStateV1>(SAVE_STATE);
 
-                if (_saveState != null && _saveState.CampaignState != null)
+                if (_saveState != null && _saveState.SettingsState != null)
                     return;
             }
 
             _saveState = new SaveStateV1
             {
                 SettingsState = new SettingsState(),
-                CampaignState = new CampaignState
-                {
-                    Locations = new List<LocationState>
-                        {
-                            new("location_1", false, new List<MissionState>
-                            {
-                                new("mission_1_1", false)
-                            })
-                        },
-                    SelectedLocationId = "location_1",
-                    // SelectedMissionId = "mission_1_1"
-                }
             };
 
             SaveAll();

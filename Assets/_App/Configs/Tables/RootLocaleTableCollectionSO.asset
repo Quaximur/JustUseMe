@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: SparksOfTheAbyss.Shared::ITCafe.LocaleTableCollectionSO
   _rawData:
     <TableReferences>k__BackingField:
-      _lockedItems: []
-    _tables: []
+      _lockedItems:
+      - m_TableCollectionName: Shared
+    _tables:
+    - {fileID: 11400000, guid: 8373e0c183ed08b40a9784f843e695f4, type: 2}

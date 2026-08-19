@@ -14,19 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Shared
   m_TableCollectionNameGuidString: 2996443a36c36ba42b1314b90733aeae
-  m_Entries:
-  - m_Id: 364316606988288
-    m_Key: campaign_title
-    m_Metadata:
-      m_Items: []
-  - m_Id: 364444474540032
-    m_Key: locations_title
-    m_Metadata:
-      m_Items: []
-  - m_Id: 364567350870016
-    m_Key: missions_title
-    m_Metadata:
-      m_Items: []
+  m_Entries: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
