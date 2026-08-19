@@ -33,7 +33,7 @@ namespace JustUseMe.Shared.Utils
             {
                 _sources.Add(source);
             }
-            
+
             _collectionChanged.OnNext(Unit.Default);
         }
 
@@ -85,7 +85,13 @@ namespace JustUseMe.Shared.Utils
                     {
                         var product = 1f;
                         foreach (var v in values)
+                        {
+                            if (v == 0.0f)
+                                return 0.0f;
+
                             product *= v;
+                        }
+
                         return product;
                     })
                     .Subscribe(x => observer.OnNext(x));
