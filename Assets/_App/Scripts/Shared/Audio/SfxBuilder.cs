@@ -47,8 +47,10 @@ namespace JustUseMe.Shared
             {
                 if (isDisposed)
                     return;
-                
-                sfxSource.Stop();
+
+                if (sfxSource != null)
+                    sfxSource.Stop();
+                    
                 isDisposed = true;
             });
 

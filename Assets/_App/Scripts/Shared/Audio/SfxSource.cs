@@ -58,6 +58,9 @@ namespace JustUseMe.Shared
 
         public void Stop()
         {
+            if (this == null)
+                return;
+                
             if (_playingCoroutine != null)
             {
                 StopCoroutine(_playingCoroutine);
