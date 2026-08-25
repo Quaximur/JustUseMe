@@ -1,4 +1,4 @@
-.cafe__close-button {
+.jum__close-button {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -21,44 +21,44 @@
     -unity-background-image-tint-color: rgba(255, 255, 255, 0.08);
 }
 
-.cafe__close-button:disabled {
+.jum__close-button:disabled {
     background-color: transparent;
     border-color: rgb(100, 120, 140);
 }
 
-.cafe__close-button:enabled:hover {
+.jum__close-button:enabled:hover {
     background-color: rgba(231, 76, 60, 0.2);
     border-color: rgb(231, 76, 60);
     color: rgb(255, 150, 140);
 }
 
-.cafe__close-button:disabled:hover {
+.jum__close-button:disabled:hover {
     background-color: transparent;
     border-color: rgb(100, 120, 140);
     color: rgb(160, 180, 200);
 }
 
-.cafe__close-button:enabled:active {
+.jum__close-button:enabled:active {
     background-color: rgba(231, 76, 60, 0.3);
     border-color: rgb(255, 100, 80);
     color: rgb(255, 180, 170);
 }
 
-.cafe__close-button:disabled:active {
+.jum__close-button:disabled:active {
     background-color: rgba(231, 76, 60, 0.3);
     border-color: rgb(255, 100, 80);
     color: rgb(255, 180, 170);
 }
 
-.cafe__close-button:enabled:focus {
+.jum__close-button:enabled:focus {
     border-color: rgb(100, 120, 140);
 }
 
-.cafe__close-button:disabled:focus {
+.jum__close-button:disabled:focus {
     border-color: rgb(100, 120, 140);
 }
 
-.cafe__control-button {
+.jum__control-button {
     height: 58px;
     background-color: transparent;
     border-color: rgb(0, 184, 148);
@@ -77,7 +77,7 @@
     -unity-background-image-tint-color: rgba(255, 255, 255, 0.08);
 }
 
-.cafe__control-button--cyan {
+.jum__control-button--cyan {
     background-color: var(--cyan-bg);
     border-top-color: var(--cyan-border-plus);
     border-right-color: var(--cyan-border);
@@ -85,7 +85,7 @@
     border-left-color: var(--cyan-border);
 }
 
-.cafe__control-button--cyan:disabled {
+.jum__control-button--cyan:disabled {
     background-color: var(--cyan-bg);
     border-top-color: var(--cyan-border-plus);
     border-right-color: var(--cyan-border);
@@ -93,35 +93,35 @@
     border-left-color: var(--cyan-border);
 }
 
-.cafe__control-button--cyan:enabled:hover {
+.jum__control-button--cyan:enabled:hover {
     background-color: var(--cyan-bg-hover);
     border-color: var(--cyan-border-hover);
 }
 
-.cafe__control-button--cyan:disabled:hover {
+.jum__control-button--cyan:disabled:hover {
     background-color: var(--cyan-bg);
     border-color: var(--cyan-border);
 }
 
-.cafe__control-button--cyan:enabled:active {
+.jum__control-button--cyan:enabled:active {
     background-color: var(--cyan-bg-active);
     border-color: var(--cyan-border-active);
 }
 
-.cafe__control-button--cyan:disabled:active {
+.jum__control-button--cyan:disabled:active {
     background-color: var(--cyan-bg);
     border-color: var(--cyan-border);
 }
 
-.cafe__control-button--cyan:enabled:focus {
+.jum__control-button--cyan:enabled:focus {
     border-color: var(--cyan-border);
 }
 
-.cafe__control-button--cyan:disabled:focus {
+.jum__control-button--cyan:disabled:focus {
     border-color: var(--cyan-border);
 }
 
-.cafe__control-button--blue {
+.jum__control-button--blue {
     background-color: var(--blue-bg);
     border-top-color: var(--blue-border-plus);
     border-right-color: var(--blue-border);
@@ -130,7 +130,7 @@
     color: var(--blue-color);
 }
 
-.cafe__control-button--blue:disabled {
+.jum__control-button--blue:disabled {
     background-color: var(--blue-bg);
     border-top-color: var(--blue-border-plus);
     border-right-color: var(--blue-border);
@@ -139,35 +139,35 @@
     color: var(--blue-color);
 }
 
-.cafe__control-button--blue:enabled:hover {
+.jum__control-button--blue:enabled:hover {
     background-color: var(--blue-bg-hover);
     border-color: var(--blue-border-hover);
 }
 
-.cafe__control-button--blue:disabled:hover {
+.jum__control-button--blue:disabled:hover {
     background-color: var(--blue-bg);
     border-color: var(--blue-border);
 }
 
-.cafe__control-button--blue:enabled:active {
+.jum__control-button--blue:enabled:active {
     background-color: var(--blue-bg-active);
     border-color: var(--blue-border-active);
 }
 
-.cafe__control-button--blue:disabled:active {
+.jum__control-button--blue:disabled:active {
     background-color: var(--blue-bg);
     border-color: var(--blue-border);
 }
 
-.cafe__control-button--blue:enabled:focus {
+.jum__control-button--blue:enabled:focus {
     border-color: var(--blue-border);
 }
 
-.cafe__control-button--blue:disabled:focus {
+.jum__control-button--blue:disabled:focus {
     border-color: var(--blue-border);
 }
 
-.cafe__control-button--gold {
+.jum__control-button--gold {
     background-color: var(--gold-bg);
     border-top-color: var(--gold-border-plus);
     border-right-color: var(--gold-border);
@@ -175,7 +175,7 @@
     border-left-color: var(--gold-border);
 }
 
-.cafe__control-button--gold:disabled {
+.jum__control-button--gold:disabled {
     background-color: var(--gold-bg);
     border-top-color: var(--gold-border-plus);
     border-right-color: var(--gold-border);
@@ -183,35 +183,35 @@
     border-left-color: var(--gold-border);
 }
 
-.cafe__control-button--gold:enabled:hover {
+.jum__control-button--gold:enabled:hover {
     background-color: var(--gold-bg-hover);
     border-color: var(--gold-border-hover);
 }
 
-.cafe__control-button--gold:disabled:hover {
+.jum__control-button--gold:disabled:hover {
     background-color: var(--gold-bg);
     border-color: var(--gold-border);
 }
 
-.cafe__control-button--gold:enabled:active {
+.jum__control-button--gold:enabled:active {
     background-color: var(--gold-bg-active);
     border-color: var(--gold-border-active);
 }
 
-.cafe__control-button--gold:disabled:active {
+.jum__control-button--gold:disabled:active {
     background-color: var(--gold-bg);
     border-color: var(--gold-border);
 }
 
-.cafe__control-button--gold:enabled:focus {
+.jum__control-button--gold:enabled:focus {
     border-color: var(--gold-border);
 }
 
-.cafe__control-button--gold:disabled:focus {
+.jum__control-button--gold:disabled:focus {
     border-color: var(--gold-border);
 }
 
-.cafe__control-button--red {
+.jum__control-button--red {
     background-color: var(--red-bg);
     border-top-color: var(--red-border-plus);
     border-right-color: var(--red-border);
@@ -220,7 +220,7 @@
     color: var(--red-color);
 }
 
-.cafe__control-button--red:disabled {
+.jum__control-button--red:disabled {
     background-color: var(--red-bg);
     border-top-color: var(--red-border-plus);
     border-right-color: var(--red-border);
@@ -229,30 +229,30 @@
     color: var(--red-color);
 }
 
-.cafe__control-button--red:enabled:hover {
+.jum__control-button--red:enabled:hover {
     background-color: var(--red-bg-hover);
     border-color: var(--red-border-hover);
 }
 
-.cafe__control-button--red:disabled:hover {
+.jum__control-button--red:disabled:hover {
     background-color: var(--red-bg);
     border-color: var(--red-border);
 }
 
-.cafe__control-button--red:enabled:active {
+.jum__control-button--red:enabled:active {
     background-color: var(--red-bg-active);
     border-color: var(--red-border-active);
 }
 
-.cafe__control-button--red:disabled:active {
+.jum__control-button--red:disabled:active {
     background-color: var(--red-bg);
     border-color: var(--red-border);
 }
 
-.cafe__control-button--red:enabled:focus {
+.jum__control-button--red:enabled:focus {
     border-color: var(--red-border);
 }
 
-.cafe__control-button--red:disabled:focus {
+.jum__control-button--red:disabled:focus {
     border-color: var(--red-border);
 }

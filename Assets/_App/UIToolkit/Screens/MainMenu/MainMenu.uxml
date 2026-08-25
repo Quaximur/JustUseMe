@@ -7,13 +7,13 @@
         <ui:VisualElement name="ContentContainer" class="main-menu__content">
             <ui:VisualElement name="MenuPanel" class="menu__panel">
                 <ui:VisualElement name="HeaderSection" class="main-menu__header">
-                    <ui:Label text="Stars Of The Abyss" class="main-menu__title"/>
+                    <ui:Label text="Sparks Of The Abyss" class="main-menu__title"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="MenuButtons" class="main-menu__buttons">
-                    <ui:Button name="PlayButton" focusable="false" text="play" class="cafe__control-button cafe__control-button--cyan"/>
-                    <ui:Button name="SettingsButton" focusable="false" text="settings" class="cafe__control-button cafe__control-button--blue"/>
-                    <ui:Button name="CreditsButton" focusable="false" text="credits" class="cafe__control-button cafe__control-button--gold"/>
-                    <ui:Button name="ExitButton" focusable="false" text="exit" class="cafe__control-button cafe__control-button--red"/>
+                    <ui:Button name="PlayButton" focusable="false" text="play" class="jum__control-button jum__control-button--cyan"/>
+                    <ui:Button name="SettingsButton" focusable="false" text="settings" class="jum__control-button jum__control-button--blue"/>
+                    <ui:Button name="CreditsButton" focusable="false" text="credits" class="jum__control-button jum__control-button--gold"/>
+                    <ui:Button name="ExitButton" focusable="false" text="exit" class="jum__control-button jum__control-button--red"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

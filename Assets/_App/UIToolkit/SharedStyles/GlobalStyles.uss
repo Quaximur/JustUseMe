@@ -49,7 +49,7 @@ Button {
     letter-spacing: 2px;
 }
 
-.cafe__window-wrapper {
+.jum__window-wrapper {
     background-color: rgba(10, 15, 30, 0.94);
     padding-top: 20px;
     padding-right: 20px;
@@ -59,7 +59,7 @@ Button {
     height: 100%;
 }
 
-.cafe__root-panel {
+.jum__root-panel {
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -76,7 +76,7 @@ Button {
     background-size: 100% 100%;
 }
 
-.cafe__root-panel--no-chroma {
+.jum__root-panel--no-chroma {
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -92,7 +92,7 @@ Button {
     background-size: 100% 100%;
 }
 
-.cafe__view-title {
+.jum__view-title {
     font-size: 32px;
     color: rgb(0, 184, 148);
     -unity-font-style: bold;
@@ -102,7 +102,7 @@ Button {
     padding: 0;
 }
 
-.cafe__view-subtitle {
+.jum__view-subtitle {
     font-size: 20px;
     color: rgb(120, 200, 180);
     -unity-text-align: middle-left;
@@ -111,7 +111,7 @@ Button {
     padding: 0;
 }
 
-.cafe__widget-panel {
+.jum__widget-panel {
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;

@@ -55,7 +55,7 @@ MonoBehaviour:
   _controlInfoContainerName: ControlInfoContainer
   _controlFactory:
     _tabClass: settings__section
-    _tabScrollViewClass: cafe__scroll-view
+    _tabScrollViewClass: jum__scroll-view
     _settingBarLabelName: SettingBarLabel
     _infoEntryClass: settings__info-entry
     _descriptionClass: settings__info-description
@@ -71,34 +71,43 @@ MonoBehaviour:
     <IsLoop>k__BackingField: 0
     <VolumeScale>k__BackingField: 1
     <SpacialBlend>k__BackingField: 1
+    <MinDistance>k__BackingField: 0
+    <MaxDistance>k__BackingField: 13
+    <RolloffMode>k__BackingField: 1
     <Pitch>k__BackingField: 1
     <PitchShift>k__BackingField: 1
     <MinPitchShift>k__BackingField: -0.1
     <MaxPitchShift>k__BackingField: 0.1
     <IsPausable>k__BackingField: 1
-    <IsSingleton>k__BackingField: 0
+    <IsSingleton>k__BackingField: 1
   _resetClickSfx:
     <AudioClip>k__BackingField: {fileID: 0}
     <IsLoop>k__BackingField: 0
     <VolumeScale>k__BackingField: 1
     <SpacialBlend>k__BackingField: 1
+    <MinDistance>k__BackingField: 0
+    <MaxDistance>k__BackingField: 13
+    <RolloffMode>k__BackingField: 1
     <Pitch>k__BackingField: 1
     <PitchShift>k__BackingField: 1
     <MinPitchShift>k__BackingField: -0.1
     <MaxPitchShift>k__BackingField: 0.1
     <IsPausable>k__BackingField: 1
-    <IsSingleton>k__BackingField: 0
+    <IsSingleton>k__BackingField: 1
   _closeClickSfx:
     <AudioClip>k__BackingField: {fileID: 0}
     <IsLoop>k__BackingField: 0
     <VolumeScale>k__BackingField: 1
     <SpacialBlend>k__BackingField: 1
+    <MinDistance>k__BackingField: 0
+    <MaxDistance>k__BackingField: 13
+    <RolloffMode>k__BackingField: 1
     <Pitch>k__BackingField: 1
     <PitchShift>k__BackingField: 1
     <MinPitchShift>k__BackingField: -0.1
     <MaxPitchShift>k__BackingField: 0.1
     <IsPausable>k__BackingField: 1
-    <IsSingleton>k__BackingField: 0
+    <IsSingleton>k__BackingField: 1
   _confirmSetup:
     TitleLid: settings_save_confirm_title
     MessageLid: settings_save_confirm_message

@@ -54,9 +54,12 @@ MonoBehaviour:
     <IsLoop>k__BackingField: 0
     <VolumeScale>k__BackingField: 1
     <SpacialBlend>k__BackingField: 1
+    <MinDistance>k__BackingField: 0
+    <MaxDistance>k__BackingField: 13
+    <RolloffMode>k__BackingField: 1
     <Pitch>k__BackingField: 1
     <PitchShift>k__BackingField: 1
     <MinPitchShift>k__BackingField: -0.1
     <MaxPitchShift>k__BackingField: 0.1
     <IsPausable>k__BackingField: 1
-    <IsSingleton>k__BackingField: 0
+    <IsSingleton>k__BackingField: 1

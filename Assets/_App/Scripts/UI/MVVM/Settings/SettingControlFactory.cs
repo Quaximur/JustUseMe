@@ -18,7 +18,7 @@ namespace JustUseMe.UI.MVVM
     {
         [Header("Tab")]
         [SerializeField] private string _tabClass = "settings__section";
-        [SerializeField] private string _tabScrollViewClass = "cafe__scroll-view";
+        [SerializeField] private string _tabScrollViewClass = "jum__scroll-view";
         [SerializeField] private string _settingBarLabelName = "SettingBarLabel";
 
         [Header("Info Container")]
