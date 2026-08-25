@@ -15,6 +15,12 @@ namespace JustUseMe.Shared
         [field: SerializeField, Range(0f, 1f)] public float VolumeScale { get; private set; } = 1f;
         
         [field: SerializeField, Range(0f, 1f)] public float SpacialBlend { get; private set; } = 1f;
+
+        [field: SerializeField, Min(0f)] public float MinDistance { get; private set; } = 0f;
+        
+        [field: SerializeField, Min(0f)] public float MaxDistance { get; private set; } = 13f;
+        
+        [field: SerializeField] public AudioRolloffMode RolloffMode { get; private set; } = AudioRolloffMode.Linear;
         
         [field: SerializeField, Min(0)] public float Pitch { get; private set; } = 1f;
         

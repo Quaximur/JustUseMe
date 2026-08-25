@@ -28,6 +28,9 @@ namespace JustUseMe.Shared
             AudioSource.volume = data.VolumeScale * _volumeMultiplier;
             AudioSource.pitch = data.Pitch;
             AudioSource.spatialBlend = data.SpacialBlend;
+            AudioSource.minDistance = data.MinDistance;
+            AudioSource.maxDistance = data.MaxDistance;
+            AudioSource.rolloffMode = data.RolloffMode;
 
             if (data.PitchShift)
                 AudioSource.pitch += Random.Range(data.MinPitchShift, data.MaxPitchShift);

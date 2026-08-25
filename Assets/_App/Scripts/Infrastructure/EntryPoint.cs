@@ -8,7 +8,7 @@ using UnityEngine.Localization.Settings;
 
 namespace JustUseMe.Infrastructure
 {
-    public class EntryPoint
+    internal sealed class EntryPoint
     {
         private static EntryPoint _instance;
 
