@@ -31,18 +31,18 @@
       "hash": "d27361f6215cf01998e4ab4bd7588974dbd9f7f4"
     },
     "com.quaximur.devkit": {
-      "version": "https://github.com/Quaximur/DevKit.git#0.2.1",
+      "version": "https://github.com/Quaximur/DevKit.git#0.2.2",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b5688f9f664a67cc19041327c34d05123a46a0a9"
+      "hash": "72b024e71c22fa45de7dcd9478f8dc5e4e4f4580"
     },
     "com.quaximur.devkit.ui": {
-      "version": "https://github.com/Quaximur/DevKit.UI.git#0.1.4",
+      "version": "https://github.com/Quaximur/DevKit.UI.git#0.1.5",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "79ff3307939ade85996182fd3ca14c9ebad5c333"
+      "hash": "6196d75d860689e55765ebc8ec97add915ec509c"
     },
     "com.unity.addressables": {
       "version": "2.9.1",

@@ -3,7 +3,7 @@ using JustUseMe.Data;
 
 namespace JustUseMe.Data.Settings
 {
-    public class SettingsModel : Model<SettingsState>
+    public class SettingsModel : Model<ISettingsState>
     {
         // Sound
         public readonly ReactiveProperty<int> MusicVolume;
@@ -28,7 +28,7 @@ namespace JustUseMe.Data.Settings
         // Language
         public readonly ReactiveProperty<string> Language;
 
-        public SettingsModel(SettingsState state) : base(state)
+        public SettingsModel(ISettingsState state) : base(state)
         {
             // Sound
             MusicVolume = new ReactiveProperty<int>(state.MusicVolume);

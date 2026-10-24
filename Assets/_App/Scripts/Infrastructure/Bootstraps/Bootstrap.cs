@@ -31,6 +31,12 @@ namespace JustUseMe.Infrastructure.Bootstraps
             Container = gameObject.scene.GetSceneContainer();
         }
 
+        protected async UniTask BuildModulesAsync()
+        {
+            var waitQueue = Container.Resolve<BootstrapWaitQueueKey>().Value;
+            await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
+        }
+
         protected virtual void OnConfigure(ContainerBuilder builder)
         {
         }

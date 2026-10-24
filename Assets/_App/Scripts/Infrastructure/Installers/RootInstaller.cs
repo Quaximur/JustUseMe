@@ -74,20 +74,19 @@ namespace JustUseMe.Infrastructure.Installers
             var saveSystem = new SimpleSaveSystem(serializer, storage);
             var saveStateService = new SaveStateService(saveSystem);
 
-            saveStateService.LoadAll();
+            saveStateService.LoadSettings();
 
             builder.RegisterValue(saveStateService,
                 new Type[] { typeof(ISaveStateLoader), typeof(ISaveStateProvider) });
 
             var saveSignal = new Subject<Unit>();
-            saveSignal.Subscribe(_ => saveStateService.SaveAll())
+            saveSignal.Subscribe(_ => saveStateService.SaveSettings())
                 .AddTo(this);
 
             builder.RegisterValue(new SaveSettingsSignalKey(saveSignal));
 
-            var saveState = saveStateService.SaveState;
-            var settingsState = saveState.SettingsState;
-            builder.RegisterValue(settingsState);
+            var settingsState = saveStateService.SettingsState;
+            builder.RegisterValue(settingsState, new Type[] { typeof(ISettingsState) });
             builder.RegisterType(typeof(SettingsModel), Lifetime.Singleton, Resolution.Lazy);
         }
 

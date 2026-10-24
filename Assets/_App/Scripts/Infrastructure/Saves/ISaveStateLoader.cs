@@ -2,7 +2,9 @@ namespace JustUseMe.Infrastructure.Saves
 {
     public interface ISaveStateLoader
     {
-        public void SaveAll();
-        public void LoadAll();
+        public void SaveSettings();
+        public string SaveGame();
+        public void LoadSettings();
+        public void LoadGame(string gameId = null);
     }
 }

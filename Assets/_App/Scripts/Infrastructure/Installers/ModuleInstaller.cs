@@ -8,12 +8,13 @@ using UnityEngine;
 
 namespace JustUseMe.Infrastructure.Installers
 {
-    public abstract class ModuleInstaller : MonoBehaviour, IInstaller, IModuleInstaller
+    public abstract class ModuleInstaller : MonoBehaviour, IInstaller, IModuleInstaller, IDisposable
     {
         public abstract void Install(ContainerBuilder builder);
         public abstract UniTask OnInitialize();
 
         protected Container Container { get; private set; }
+        protected DisposableBag _disposables = new();
 
         void IInstaller.InstallBindings(ContainerBuilder builder)
         {
@@ -27,6 +28,16 @@ namespace JustUseMe.Infrastructure.Installers
 
             var waitQueue = container.Resolve<BootstrapWaitQueueKey>().Value;
             waitQueue.Add(OnInitialize);
+        }
+
+        private void OnDestroy()
+        {
+            Dispose();
+        }
+
+        public virtual void Dispose()
+        {
+            Disposes.ClearDispose(ref _disposables);
         }
     }
 }
