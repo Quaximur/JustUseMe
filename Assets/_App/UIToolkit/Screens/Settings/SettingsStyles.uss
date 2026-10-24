@@ -18,7 +18,7 @@
     max-width: 1920px;
     max-height: 1200px;
     background-color: rgba(20, 25, 45, 0.78);
-    filter: filter(url("project://database/Assets/_Source/Art/Shaders/ChromaFilter.asset?fileID=11400000&guid=b9117f15d2285b04abdcc136ad8f4c80&type=2#ChromaFilter"));
+    filter: filter(url("project://database/Assets/_App/Art/Shaders/ChromaFilter.asset?fileID=11400000&guid=b9117f15d2285b04abdcc136ad8f4c80&type=2#ChromaFilter"));
 }
 
 .settings__header {
@@ -129,7 +129,7 @@
     flex-grow: 1;
     width: 400px;
     margin-left: 20px;
-    background-image: url("project://database/Assets/_Source/Art/Images/cel_settings_icon.png?fileID=2800000&guid=72f6471196767924bbd46269f37c3bf6&type=3#cel_settings_icon");
+    background-image: url("project://database/Assets/_App/Art/Images/cel_settings_icon.png?fileID=2800000&guid=72f6471196767924bbd46269f37c3bf6&type=3#cel_settings_icon");
     -unity-background-scale-mode: scale-to-fit;
     -unity-background-image-tint-color: rgba(132, 165, 255, 0.04);
 }
