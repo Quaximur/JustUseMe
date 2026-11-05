@@ -37,7 +37,7 @@ namespace JustUseMe.Shared
                 disposable = null;
                 return false;
             }
-            
+
             var isDisposed = false;
 
             sfxSource.OnDisposed.Take(1)
@@ -50,7 +50,7 @@ namespace JustUseMe.Shared
 
                 if (sfxSource != null)
                     sfxSource.Stop();
-                    
+
                 isDisposed = true;
             });
 
@@ -65,25 +65,37 @@ namespace JustUseMe.Shared
             {
                 FLogger.LogError<SfxBuilder>("sfxData is invalid");
                 sfxSource = null;
-                
+
                 return false;
             }
 
             if (sfxData.IsSingleton)
             {
-                _audioPlayer.PlayOneShotSingletonSFX(sfxData.AudioClip, sfxData.VolumeScale);
+                _audioPlayer.PlayOneShotSingletonSfx(sfxData.AudioClip, sfxData.VolumeScale);
                 sfxSource = null;
-                
+
+                return false;
+            }
+
+            if (!_audioPlayer.CanPlaySfx(sfxData))
+            {
+                sfxSource = null;
                 return false;
             }
 
             sfxSource = _audioPlayer.Get();
             sfxSource.Init(sfxData, _audioPlayer);
 
+            if (sfxData.IsFrequent)
+                sfxSource.Node = _audioPlayer.ActiveFrequentSfx.AddLast(sfxSource);
+            else
+                _audioPlayer.ActiveCommonSfx.Add(sfxSource);
+
             if (_position.HasValue)
                 sfxSource.transform.position = _position.Value;
             else
                 sfxSource.AudioSource.spatialBlend = 0.0f;
+
 
             return true;
         }

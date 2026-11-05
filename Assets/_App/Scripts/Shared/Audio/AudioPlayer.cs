@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using R3;
 using UnityEngine.Pool;
 using JustUseMe.Shared.Utils;
+using DevKit.Utils;
 
 namespace JustUseMe.Shared
 {
     public class AudioPlayer : MonoBehaviour, IAudioPlayer
     {
         public readonly ReactiveProperty<float> VolumeMultiplier = new(1.0f);
+        public readonly List<SfxSource> ActiveCommonSfx = new();
+        public readonly LinkedList<SfxSource> ActiveFrequentSfx = new();
 
         [SerializeField] private AudioSource _singletonMusicSource;
         [SerializeField] private AudioSource _singletonSfxSource;
@@ -16,11 +19,10 @@ namespace JustUseMe.Shared
         [SerializeField] private bool _collectionCheck = true;
         [SerializeField] private int _defaultCapacity = 10;
         [SerializeField] private int _maxPoolSize = 100;
+        [SerializeField] int _maxFrequentSfx = 30;
 
         private IObjectPool<SfxSource> _sfxSourcePool;
         private readonly ReactiveProperty<float> _audioVolumeFadeScale = new(1.0f);
-
-        private readonly List<SfxSource> _activeSfxSources = new();
         private readonly ObservableProd _musicProduct = new();
         private readonly ObservableProd _sfxProduct = new();
 
@@ -58,22 +60,54 @@ namespace JustUseMe.Shared
             _sfxProduct.Add(sfxScaler);
         }
 
+        public bool CanPlaySfx(SfxData data)
+        {
+            if (!data.IsFrequent)
+                return true;
+
+            if (ActiveFrequentSfx.Count >= _maxFrequentSfx)
+            {
+                try
+                {
+                    ActiveFrequentSfx.First.Value.Stop();
+                    return true;
+                }
+                catch
+                {
+                    FLogger.LogError<AudioPlayer>("SfxSource is already released");
+                }
+
+                return false;
+            }
+
+            return true;
+        }
+
         public SfxSource Get()
         {
             return _sfxSourcePool.Get();
         }
 
-        public void Release(SfxSource soundEmitter)
+        public void Release(SfxSource sfxSource)
         {
-            _sfxSourcePool.Release(soundEmitter);
+            _sfxSourcePool.Release(sfxSource);
         }
 
         public void StopAllSfx()
         {
-            var tempList = new List<SfxSource>(_activeSfxSources);
+            var commonSfxToStop = ActiveCommonSfx.ToArray();
+            ActiveCommonSfx.Clear(); // micro optim to prevent O(N) Remove in OnReturnedToPool
 
-            foreach (var soundEmitter in tempList)
-                soundEmitter.Stop();
+            foreach (var sfxSource in commonSfxToStop)
+                sfxSource.Stop();
+
+            var frequentNode = ActiveFrequentSfx.First;
+            while (frequentNode != null)
+            {
+                var nextFrequentNode = frequentNode.Next;
+                frequentNode.Value.Stop();
+                frequentNode = nextFrequentNode;
+            }
         }
 
         public void PlaySingletonMusic(AudioClip musicClip, bool loop = true)
@@ -94,10 +128,12 @@ namespace JustUseMe.Shared
         }
 
         /// <summary>
-        /// SFX will continue playing even if scene is unloaded until it`s source will be stopped by script.
-        /// No pooling.
+        /// No SfxSource pooling. 
+        /// Common audio settings will be applied.
+        /// Sfx can not be cancelled.
+        /// Use for optimization.
         /// </summary>
-        public void PlayOneShotSingletonSFX(AudioClip clip, float volumeScale = 1.0f)
+        public void PlayOneShotSingletonSfx(AudioClip clip, float volumeScale = 1.0f)
         {
             _singletonSfxSource.PlayOneShot(clip, volumeScale);
         }
@@ -126,22 +162,29 @@ namespace JustUseMe.Shared
             return sfxSource;
         }
 
-        private void OnTakeFromPool(SfxSource soundEmitter)
+        private void OnTakeFromPool(SfxSource sfxSource)
         {
-            soundEmitter.gameObject.SetActive(true);
-            _activeSfxSources.Add(soundEmitter);
+            sfxSource.gameObject.SetActive(true);
         }
 
-        private void OnReturnedToPool(SfxSource soundEmitter)
+        private void OnReturnedToPool(SfxSource sfxSource)
         {
-            soundEmitter.gameObject.SetActive(false);
-            _activeSfxSources.Remove(soundEmitter);
+            sfxSource.gameObject.SetActive(false);
+
+            if (sfxSource.Node != null)
+            {
+                ActiveFrequentSfx.Remove(sfxSource.Node);
+                sfxSource.Node = null;
+                return;
+            }
+
+            ActiveCommonSfx.Remove(sfxSource);
         }
 
-        private void OnDestroyPoolObject(SfxSource soundEmitter)
+        private void OnDestroyPoolObject(SfxSource sfxSource)
         {
-            if (soundEmitter != null && soundEmitter.gameObject != null)
-                Destroy(soundEmitter.gameObject);
+            if (sfxSource != null && sfxSource.gameObject != null)
+                Destroy(sfxSource.gameObject);
         }
     }
 }

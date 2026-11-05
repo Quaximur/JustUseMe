@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using R3;
 using UnityEngine;
 
@@ -9,8 +10,11 @@ namespace JustUseMe.Shared
     {
         public Observable<Unit> OnDisposed => _onDisposed;
         public SfxData Data { get; private set; }
+        public LinkedListNode<SfxSource> Node { get; set; }
 
         [field: SerializeField] public AudioSource AudioSource { get; private set; }
+
+        private bool IsAppPaused => !Application.isFocused && !Application.runInBackground;
 
         private Coroutine _playingCoroutine;
         private AudioPlayer _audioPlayer;
@@ -49,12 +53,12 @@ namespace JustUseMe.Shared
                 StopCoroutine(_playingCoroutine);
 
             AudioSource.Play();
-            _playingCoroutine = StartCoroutine(WaitForSoundToEnd());
+            _playingCoroutine = StartCoroutine(WaitForSfxToEnd());
         }
 
-        IEnumerator WaitForSoundToEnd()
+        private IEnumerator WaitForSfxToEnd()
         {
-            yield return new WaitWhile(() => AudioSource.isPlaying);
+            yield return new WaitWhile(() => AudioSource.isPlaying || AudioSource.loop || IsAppPaused);
 
             Stop();
         }

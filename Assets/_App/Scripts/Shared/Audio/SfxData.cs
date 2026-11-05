@@ -9,6 +9,7 @@ namespace JustUseMe.Shared
         public bool IsValid => AudioClip != null;
         
         [field: SerializeField] public AudioClip AudioClip { get; private set; }
+        [field: SerializeField] public bool IsFrequent { get; private set; } = false;
         
         [field: SerializeField] public bool IsLoop { get; private set; } = false;
         
@@ -33,7 +34,9 @@ namespace JustUseMe.Shared
         [field: SerializeField] public bool IsPausable { get; private set; } = true;
 
         /// <summary>
-        /// If set to true: random pitch is not applied. Sfx doesn`t stop if scene changes.
+        /// If set to true: only AudioClip and VolumeScale will be used; 
+        /// plays AudioClip on singleton SfxSource with it`s common settings;
+        /// clip can not be cancelled.
         /// TIP: use in UI.
         /// </summary>
         [field: SerializeField] public bool IsSingleton { get; private set; } = false;

@@ -9,10 +9,9 @@ namespace JustUseMe.Shared
         public void StopSingletonMusic();
         public void UnPauseMusic();
 
-        public SfxSource Get();
         public SfxBuilder GetSfxBuilder();
-        public void PlayOneShotSingletonSFX(AudioClip clip, float volumeScale = 1);
-        public void Release(SfxSource soundEmitter);
+        public void PlayOneShotSingletonSfx(AudioClip clip, float volumeScale = 1);
+        public void Release(SfxSource sfxSource);
         public void StopAllSfx();
     }
 }
