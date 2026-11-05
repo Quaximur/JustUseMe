@@ -7,7 +7,7 @@
         <ui:VisualElement name="ContentContainer" class="main-menu__content">
             <ui:VisualElement name="MenuPanel" class="menu__panel">
                 <ui:VisualElement name="HeaderSection" class="main-menu__header">
-                    <ui:Label text="Sparks Of The Abyss" class="main-menu__title"/>
+                    <ui:Label text="Just Use Me" class="main-menu__title"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="MenuButtons" class="main-menu__buttons">
                     <ui:Button name="PlayButton" focusable="false" text="play" class="jum__control-button jum__control-button--cyan"/>
@@ -18,7 +18,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Footer" class="main-menu__footer">
-            <ui:Label text="© 2026 Emil Alekseev ( -Quaximur)" class="main-menu__copyright"/>
+            <ui:Label text="© 2026 Quaximur" class="main-menu__copyright"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
