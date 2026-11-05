@@ -14,13 +14,20 @@ namespace JustUseMe.Shared
 
         [field: SerializeField] public AudioSource AudioSource { get; private set; }
 
-        private bool IsAppPaused => !Application.isFocused && !Application.runInBackground;
+        private bool IsAppPaused => !Application.runInBackground && !IsFocused;
+
+#if UNITY_EDITOR
+        private bool IsFocused => UnityEditorInternal.InternalEditorUtility.isApplicationActive;
+#else
+        private bool IsFocused => Application.isFocused;
+#endif
+
 
         private Coroutine _playingCoroutine;
         private AudioPlayer _audioPlayer;
         private readonly Subject<Unit> _onDisposed = new();
         private float _volumeMultiplier = 1.0f;
-        
+
         public void Init(SfxData data, AudioPlayer audioPlayer)
         {
             Data = data;
@@ -67,7 +74,7 @@ namespace JustUseMe.Shared
         {
             if (this == null)
                 return;
-                
+
             if (_playingCoroutine != null)
             {
                 StopCoroutine(_playingCoroutine);
