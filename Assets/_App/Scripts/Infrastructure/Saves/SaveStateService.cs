@@ -32,9 +32,9 @@ namespace JustUseMe.Infrastructure.Saves
             FLogger.LogGood<SaveStateService>("Settings were saved");
         }
 
-        public string SaveGame()
+        public string SaveGame(string gameId = null)
         {
-            var saveId = DateTime.Now.ToString("yyyyMMdd_HHmmssfff", CultureInfo.InvariantCulture);
+            var saveId = gameId ?? DateTime.Now.ToString("yyyyMMdd_HHmmssfff", CultureInfo.InvariantCulture);
 
             _saveSystem.Save(GetGameKey(saveId), _gameState);
 
