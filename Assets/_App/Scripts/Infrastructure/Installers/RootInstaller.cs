@@ -12,14 +12,13 @@ using JustUseMe.SaveState;
 using JustUseMe.Shared.Localization;
 using JustUseMe.UI.MVVM;
 using UnityEngine;
-
 using Lifetime = Reflex.Enums.Lifetime;
-using Resolution = Reflex.Enums.Resolution;
 using JustUseMe.Shared;
+using Resolution = Reflex.Enums.Resolution;
 
 namespace JustUseMe.Infrastructure.Installers
 {
-    public class RootInstaller : MonoBehaviour, IInstaller
+    internal sealed class RootInstaller : MonoBehaviour, IInstaller
     {
         [Header("Root")]
         [SerializeField] private RootUIBinder _rootUIBinderPrefab;
