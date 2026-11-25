@@ -2,37 +2,33 @@ using Cysharp.Threading.Tasks;
 using R3;
 using Reflex.Core;
 using JustUseMe.Infrastructure.Contexts;
-using JustUseMe.Infrastructure.TypedKeys;
 using JustUseMe.TypedKeys;
 using UnityEngine;
+using System.Threading;
 
 namespace JustUseMe.Infrastructure.Bootstraps
 {
     public class MainMenuBoot : Bootstrap<MainMenuEnterContext, MainMenuExitContext>
     {
-        private MainMenuEnterContext _mainMenuEnterContext;
-
         protected override void OnConfigure(ContainerBuilder builder)
         {
-            // REGISTRATIONS
+            // WRITE ADDITIONAL SCENE LEVEL REGISTRATIONS
 
             builder.RegisterValue(new StartSessionSubjectKey(new Subject<Unit>()));
 
             //
         }
 
-        public override async UniTask<Observable<MainMenuExitContext>> BootAsync(MainMenuEnterContext mainMenuEnterContext = null)
+        protected override async UniTask<Observable<MainMenuExitContext>> OnBootAsync(MainMenuEnterContext mainMenuEnterContext = null, 
+            CancellationToken cancellationToken = default)
         {
-            _mainMenuEnterContext = mainMenuEnterContext;
-
             Build();
 
-            // INITIALIZATION
+            // WRITE ADDITIONAL SCENE LEVEL INITIALIZATION
 
             //
 
-            var waitQueue = Container.Resolve<BootstrapWaitQueueKey>().Value;
-            await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
+            await BuildModulesAsync(cancellationToken); // CRUTIAL: await modules init
 
             var startSessionSignal = Container.Resolve<StartSessionSubjectKey>().Value;
             var mainMenuExitSignal = new Subject<MainMenuExitContext>();

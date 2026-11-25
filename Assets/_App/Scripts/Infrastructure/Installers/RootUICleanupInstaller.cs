@@ -2,7 +2,7 @@ using DevKit.UI.MVVM;
 using Reflex.Core;
 using Cysharp.Threading.Tasks;
 using DevKit.Utils;
-
+using System.Threading;
 using Lifetime = Reflex.Enums.Lifetime;
 using Resolution = Reflex.Enums.Resolution;
 
@@ -14,7 +14,7 @@ namespace JustUseMe.Infrastructure.Installers
         {
         }
 
-        public override UniTask OnInitialize()
+        public override UniTask OnInitialize(CancellationToken token = default)
         {
             var rootUIBinder = Container.Resolve<IRootUIBinder>();
             rootUIBinder.ClearViews();

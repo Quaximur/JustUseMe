@@ -2,39 +2,32 @@ using Cysharp.Threading.Tasks;
 using R3;
 using Reflex.Core;
 using JustUseMe.Infrastructure.Contexts;
-using JustUseMe.Infrastructure.TypedKeys;
 using JustUseMe.TypedKeys;
+using System.Threading;
 
 namespace JustUseMe.Infrastructure.Bootstraps
 {
     public class GameplayBoot : Bootstrap<GameplayEnterContext, GameplayExitContext>
     {
-        private GameplayEnterContext _gameplayEnterContext;
-
         protected override void OnConfigure(ContainerBuilder builder)
         {
-            // REGISTRATIONS
-            // + additional loaded configs registering from IEnterContext
+            // WRITE ADDITIONAL SCENE LEVEL REGISTRATIONS
 
             builder.RegisterValue(new ExitGameplaySubjectKey(new Subject<Unit>()));
 
             //
         }
 
-        public override async UniTask<Observable<GameplayExitContext>> BootAsync(GameplayEnterContext gameplayEnterContext)
+        protected override async UniTask<Observable<GameplayExitContext>> OnBootAsync(GameplayEnterContext gameplayEnterContext, 
+            CancellationToken cancellationToken = default)
         {
-            _gameplayEnterContext = gameplayEnterContext;
-
-            // + wait for additional assets loading from enter context
-
             Build(); // CRUTIAL: build the Container with dependencies
 
-            // INITIALIZATION
+            // WRITE ADDITIONAL SCENE LEVEL INITIALIZATION
 
             //
 
-            var waitQueue = Container.Resolve<BootstrapWaitQueueKey>().Value;
-            await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
+            await BuildModulesAsync(cancellationToken); // CRUTIAL: await modules init
 
             var exitSignal = Container.Resolve<ExitGameplaySubjectKey>().Value;
             var gameplayExitSignal = new Subject<GameplayExitContext>();

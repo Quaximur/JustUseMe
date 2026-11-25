@@ -5,13 +5,14 @@ using R3;
 using Reflex.Core;
 using JustUseMe.Infrastructure.TypedKeys;
 using UnityEngine;
+using System.Threading;
 
 namespace JustUseMe.Infrastructure.Installers
 {
     public abstract class ModuleInstaller : MonoBehaviour, IInstaller, IModuleInstaller, IDisposable
     {
         public abstract void Install(ContainerBuilder builder);
-        public abstract UniTask OnInitialize();
+        public abstract UniTask OnInitialize(CancellationToken token = default);
 
         protected Container Container { get; private set; }
         protected DisposableBag _disposables = new();

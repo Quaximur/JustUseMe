@@ -9,6 +9,7 @@ using JustUseMe.Infrastructure.TypedKeys;
 using JustUseMe.Shared.Utils;
 using JustUseMe.Infrastructure.Contexts;
 using Cysharp.Threading.Tasks;
+using System.Threading;
 
 namespace JustUseMe.Infrastructure.Bootstraps
 {
@@ -19,9 +20,18 @@ namespace JustUseMe.Infrastructure.Bootstraps
         [SerializeField] private ContainerScope _containerScope;
 
         protected Container Container { get; private set; }
+        protected TEnterContext EnterContext { get; private set; }
         protected DisposableBag _disposables = new();
 
-        public abstract UniTask<Observable<TExitContext>> BootAsync(TEnterContext mainMenuEnterContext);
+        public UniTask<Observable<TExitContext>> BootAsync(TEnterContext enterContext,
+            CancellationToken cancellationToken = default)
+        {
+            EnterContext = enterContext;
+            return OnBootAsync(enterContext, cancellationToken);
+        }
+
+        protected abstract UniTask<Observable<TExitContext>> OnBootAsync(TEnterContext enterContext,
+            CancellationToken cancellationToken = default);
 
         protected void Build()
         {
@@ -31,10 +41,10 @@ namespace JustUseMe.Infrastructure.Bootstraps
             Container = gameObject.scene.GetSceneContainer();
         }
 
-        protected async UniTask BuildModulesAsync()
+        protected async UniTask BuildModulesAsync(CancellationToken cancellationToken = default)
         {
             var waitQueue = Container.Resolve<BootstrapWaitQueueKey>().Value;
-            await waitQueue.ExecuteAsync(); // CRUTIAL: resolve and await modules init
+            await waitQueue.ExecuteAsync(cancellationToken);
         }
 
         protected virtual void OnConfigure(ContainerBuilder builder)

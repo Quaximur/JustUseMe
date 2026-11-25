@@ -5,7 +5,7 @@ using R3;
 using Cysharp.Threading.Tasks;
 using JustUseMe.Infrastructure.Contexts;
 using JustUseMe.Infrastructure.Bootstraps;
-using JustUseMe.Shared;
+using DevKit.Utils;
 
 namespace JustUseMe.Infrastructure
 {
@@ -36,6 +36,7 @@ namespace JustUseMe.Infrastructure
                     await LoadGameplay(immediateLoading: true);
                     break;
                 default:
+                    FLogger.LogWarning<SceneLoader>("Unhandled scene enter context");
                     _loadingScreen.Hide();
                     break;
             }
@@ -54,7 +55,7 @@ namespace JustUseMe.Infrastructure
             await LoadSceneAsync(Scenes.GAP);
             await LoadSceneAsync(Scenes.MAIN_MENU);
 
-            Debug.Log("Main menu scene loaded");
+            FLogger.Log<SceneLoader>("Main menu scene loaded");
 
             var mainMenuBootstrap = Object.FindAnyObjectByType<MainMenuBoot>();
             var exitMainMenuSignal = await mainMenuBootstrap.BootAsync(mainMenuEnterContext);
@@ -78,7 +79,7 @@ namespace JustUseMe.Infrastructure
             await LoadSceneAsync(gameplayEnterContext == null ? Scenes.GAMEPLAY :
                 gameplayEnterContext.ToSceneName);
 
-            Debug.Log("Gameplay scene loaded");
+            FLogger.Log<SceneLoader>("Gameplay scene loaded");
 
             var gameplayBootstrap = Object.FindAnyObjectByType<GameplayBoot>();
             var gameplayExitSignal = await gameplayBootstrap.BootAsync(gameplayEnterContext);
@@ -95,7 +96,7 @@ namespace JustUseMe.Infrastructure
                         LoadGameplay((GameplayEnterContext)enterContext).Forget();
                         break;
                     default:
-                        Debug.LogWarning("Unhandled scene enter context");
+                        FLogger.LogWarning<SceneLoader>("Unhandled scene enter context");
                         LoadMainMenu().Forget();
                         break;
                 }

@@ -1,33 +1,24 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
-using DevKit.Utils;
 
 namespace JustUseMe.Shared.Utils
 {
     public class WaitQueue
     {
-        private readonly List<Func<UniTask>> _awaitableFuncs = new();
+        private readonly List<Func<CancellationToken, UniTask>> _awaitableFuncs = new();
 
-        public async UniTask ExecuteAsync()
+        public async UniTask ExecuteAsync(CancellationToken token = default)
         {
             foreach (var awaitableFunc in _awaitableFuncs)
-            {
-                try
-                {
-                    await awaitableFunc();
-                }
-                catch (Exception ex)
-                {
-                    FLogger.LogError(ex.ToString());
-                }
-            }
+                await awaitableFunc(token);
         }
 
         /// <summary> 
         /// Add to wait group. Func will start executing in queue after <see cref="ExecuteAsync"/> call
         /// </summary>
-        public void Add(Func<UniTask> awaitableFunc)
+        public void Add(Func<CancellationToken, UniTask> awaitableFunc)
         {
             _awaitableFuncs.Add(awaitableFunc);
         }

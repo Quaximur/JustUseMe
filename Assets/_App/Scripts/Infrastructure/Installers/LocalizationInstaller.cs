@@ -4,7 +4,7 @@ using Reflex.Core;
 using JustUseMe.Shared.Localization;
 using JustUseMe.Shared.SerializedRefs;
 using UnityEngine;
-
+using System.Threading;
 using Lifetime = Reflex.Enums.Lifetime;
 using Resolution = Reflex.Enums.Resolution;
 
@@ -23,7 +23,7 @@ namespace JustUseMe.Infrastructure.Installers
             builder.RegisterValue(_localizationKey, new System.Type[] { _localizationKey.RegistrationType });
         }
 
-        public override async UniTask OnInitialize()
+        public override async UniTask OnInitialize(CancellationToken token = default)
         {
             var localozationLoaderKey = (SerializedLocalizationRef)Container.Resolve(_localizationKey.RegistrationType);
             var localozationLoader = localozationLoaderKey.Value;
